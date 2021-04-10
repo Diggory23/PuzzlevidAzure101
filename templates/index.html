@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="banner bg3">
+        <div class="navbar">
+            {% load static %}
+             <a href="{% url 'juega' %}"><img src="{% static 'images/logo.png'%}" class="logo"></a>
+            <ul>
+                <li><a href="{% url 'index' %}">Iniciar Sesión</a></li>
+                <li><a href="{% url 'juega' %}">Jugar</a></li>
+                <li><a href="{% url 'steam' %}">STEAM</a></li>
+            </ul>
+        </div>
+
+        <div class="row">
+        <div class="col2">
+           <center>
+            <div class="cardlog">
+                <div class="inner-box" id="cardlog">
+                <div class="card-front">
+                    <h5>LOGIN</h5>
+                    <br>
+                    <form>
+                        <input type="email" class="input-box" placeholder="Correo electrónico" required>
+                        <input type="password" class="input-box" placeholder="Contraseña" required>
+                        <a href="">Olvidé la contraseña</a>
+                        <button type="submit" class="submit-btn">Submit</button>
+                        <input type="checkbox"><span>Recuérdame</span>
+                    </form>
+                    <br>
+                    <button type="button" class="btn" onclick="openRegister()">Registrarse</button>
+                    
+                </div>
+                <div class="card-back"> 
+                 <h5>REGISTRO</h5>
+                    <br>
+                    <form>
+                       <input type="text" class="input-box" placeholder="Nombre" required>
+                       <input type="text" class="input-box" placeholder="Apellido" required>
+                       <input type="date" class="input-box" placeholder="fecha de nacimiento" required>
+                        <input type="email" class="input-box" placeholder="Correo electrónico" required>
+                        <input type="password" class="input-box" placeholder="Contraseña" required>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                    <button type="button" class="btn" onclick="openLogin()">Ya tengo cuenta</button>  
+                </div>
+                </div>
+            </div>
+        </center>
+        </div>
+                
+</div>
+    
+    </div>
+    <script>
+    var cardlog = document.getElementById("cardlog");
+        
+    function openRegister(){
+        cardlog.style.transform = "rotateY(-180deg)"; 
+    }
+    function openLogin(){
+        cardlog.style.transform = "rotateY(0deg)"; 
+    }
+    </script>
+</body>
+</html>

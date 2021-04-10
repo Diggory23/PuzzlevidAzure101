@@ -1,0 +1,264 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url("/static/images/background.jpg");
+    background-size: cover;
+    background-position:center;
+}
+
+.navbar{
+    width: 100%;
+    background-color: #000000 ;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 120px;
+    cursor: pointer;
+    padding: 0 0 0 20;
+}
+
+.navbar ul li{
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 20px; 
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content:'';
+    height: 3px;
+    width:0; 
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom:-10px;
+    transition:0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+
+.row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+    padding: 0 80 0 80;
+}
+.row2{
+    display: flex;
+    height: 60%;
+    justify-content: space-evenly;
+    padding: 0 80 0 80;
+}
+.row3{
+    display: flex;
+    height: 10%;
+    justify-content: center;
+    padding: 0 80 0 80;
+}
+.row4{
+    display: flex;
+    height: 5%;
+    justify-content: center;
+    padding: 0 80 0 80;
+}
+.col{
+    flex-basis: 45%;
+    align-content: center;
+}
+.col1{
+    flex-basis: 10%;
+}
+.col2{
+    flex-basis: 100%;
+}
+.card{
+    width: 350px;
+    height: 230px;
+    display: inline-block;
+    border-radius:10px;
+    padding:15px 25px;
+    box-sizing:border-box;
+    cursor:pointer;
+    margin:10px 15px;
+    background-position: center;
+    background-size:cover;
+    transition:transform 0.5s;
+}
+.cardinfo{
+    width: 330px;
+    padding:15px 20px;
+    background-color: white;
+    height: 430px;
+    border-radius:8px;
+    border: 4.5px solid #1B3E4B;
+    box-shadow:0 2px 2px rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: justify;
+    transition:transform 0.5s;
+}
+.cardinfo img{
+    width:250px;
+}
+.cardinfo p{
+    color: #000;
+}
+.card1{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("/static/images/juego.png");
+}
+.bg2{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("/static/images/bg2.jpg");
+}
+.bg3{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("/static/images/bg3.jpg");
+}
+
+.card:hover{
+    transform:translateY(-10px);   
+}
+.cardinfo:hover{
+    transform:translateY(-10px);
+    box-shadow:0 12px 16px rgba(0,0,0,0.2);
+}
+.cardlog{
+    width: 350px;
+    height: 500px;
+    box-shadow: 0 0 40px 20px rgba(0,0,0,0.26);
+    perspective: 1000px;
+}
+    
+.inner-box{
+    position:relative;
+    width:100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.card-front, .card-back{
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-position: center;
+    background-size: cover;
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("/static/images/bglogin.jpg");
+    padding: 55px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+}
+.card-back{
+    transform:rotateY(180deg); 
+}
+.input-box{
+    width:100%;
+    background:transparent;
+    border: 1px solid #fff;
+    margin: 6px 0;
+    height:32px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    text-align:center;
+    color:#fff;
+}
+::placeholder{
+    color:#fff;
+    font-size:12px;
+}
+button{
+    width:100%;
+    background-color:#fff;
+    border: 1px solid #492FB4;
+    margin: 25px 0 10px;
+    height:32px;
+    font-size:12px;
+    border-radius:20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    color: black;
+    cursor: pointer;  
+}
+
+.submit-btn{
+    position:relative;}
+.submit-btn::after{
+    content:'\27a4';
+    color:#333;
+    line-height:32px;
+    font-size:17px;
+    height:32px;
+    width:32px;
+    border: 1.5px solid #492FB4;
+    border-radius: 50%;
+    background:#fff;
+    position:absolute;
+    right: -1px;
+    top: -1px;
+}
+span{
+    font-size:13px;
+    color:gray;
+}
+.cardlog .btn{
+    margin-top: 30px;
+    background-color:#492FB4;
+    color: white;
+    border: 1px solid #fff;
+}
+.cardlog a{
+    color: gray;
+    text-decoration: none;
+    display:block;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 8px;
+    
+}
+h1{
+    color:#fff;
+    font-size:80px; 
+}
+h4{
+    color: #000;
+    text-align: center;
+    font-size:25px
+}
+h5{
+    color: #fff;
+    font-size:30px
+}
+
+p1{
+    color: #fff;
+    font-size:12px;
+    line-height:3;
+}
+p{
+    color: #fff;
+    font-size:15px;
+    line-height:1.2;
+}
+img{
+    width:"50"; 
+    height:"60";
+}

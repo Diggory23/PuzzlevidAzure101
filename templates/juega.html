@@ -1,0 +1,44 @@
+<html>
+<head>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Puzzlevid</title>
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar"> 
+            {% load static %}
+            <a href="{% url 'juega' %}"><img src="{% static 'images/logo.png'%}" class="logo"></a>
+            <ul>
+                <li><a href="{% url 'index' %}">Iniciar Sesión</a></li>
+                <li><a href="{% url 'juega' %}">Jugar</a></li>
+                <li><a href="{% url 'steam' %}">STEAM</a></li>
+            </ul>
+        </div>
+
+        <div class="row">
+        <div class="col">
+            <h1>Puzzlevid-19</h1>
+            <p> En un futuro no tan lejano la humanidad se ve amenzada por un virus totalmente nuevo, adentrate en este mundo futurista para ayudar a encontrar la cura a este misterioso virus y así salvar a todos. Para conseguirlo necesitarás superar distintas pruebas que requeriaran de tus habilidades como científico.</p>
+            </div>
+            <div class="col1"></div>
+        <div class="col">
+           <center>
+            <a href="exe.zip" download="Puzzlevid.zip" ><div class="card card1">
+                <h5> Juega</h5>
+                <p1> Descarga el ejecutable para jugar</p1>
+            </div></a>
+            </center>
+            </div>
+    
+        
+</div>
+
+    
+    </div>
+</body>
+</html>
