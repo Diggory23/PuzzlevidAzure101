@@ -30,4 +30,4 @@ class Intento(models.Model):
     nivelId =  models.ForeignKey("Nivel", on_delete=models.SET_NULL, null=True)
     sessionId =  models.ForeignKey("Session", on_delete=models.SET_NULL, null=True)
     numeroIntento = models.IntegerField()
-    exito = models.NullBooleanField()
+    exito = models.BooleanField()
