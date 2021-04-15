@@ -43,7 +43,7 @@ def estadisticas(request):
         rows = cursor.fetchall()
         print(rows)
         return HttpResponse(rows)
-         '''
+        '''
         for row in rows:
            
             quimica.append(row[3])
@@ -55,7 +55,7 @@ def estadisticas(request):
             usuario_id = row[9]
            
         print(usuario_id)
-         '''
+        '''
 
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
@@ -64,12 +64,13 @@ def estadisticas(request):
         connection = None
 
     #Close the database connection
+    
     finally:
         if(connection != None):
             cursor.close()
             connection.close()
             print("PostgreSQL connection is now closed")
-
+    '''
     
     retorno = {"usuarioId":usuario_id,
               "scoreQuimica":quimica,
@@ -81,4 +82,4 @@ def estadisticas(request):
         }
     print(retorno)
     return render(request, 'estadisticas.html', retorno)
-
+    '''
