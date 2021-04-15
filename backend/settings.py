@@ -82,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
        'NAME': 'puzzlevid',
-        'USER': 'admin',
-        'PASSWORD': 'ragnar',
+        'USER': 'ragnar',
+        'PASSWORD': 'Raramuri23%',
         'HOST': 'localhost',
         'PORT': '5432',
     }
