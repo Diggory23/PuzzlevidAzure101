@@ -43,19 +43,21 @@ def estadisticas(request):
         rows = cursor.fetchall()
         print(rows)
         #return HttpResponse(rows)
-        '''
+        data=[]
+
         for row in rows:
-           
-            quimica.append(row[3])
-            mate.append(row[4]
-            geo= row[5]
-            fisica =row[6]
-            hist = row[7]
-            enemigos = row[8]
-            usuario_id = row[9]
-           
-        print(usuario_id)
-        '''
+           r = []
+           for c in row:
+                r.append(c[3])
+                r.append(c[4])
+                r.append(c[5])
+                r.append(c[6])
+                r.append(c[7])
+                r.append(c[8])
+                r.append(c[9])
+           data.append(r)
+        print(data)
+       
 
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
@@ -82,5 +84,5 @@ def estadisticas(request):
         }
     print(retorno)
     '''
-    return render(request, 'estadisticas.html', rows)
+    return render(request, 'estadisticas.html', data)
     
