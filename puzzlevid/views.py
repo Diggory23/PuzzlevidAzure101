@@ -46,18 +46,17 @@ def estadisticas(request):
         data=[]
 
         for row in rows:
-           r = []
-           for c in row:
-                r.append(c[3])
-                r.append(c[4])
-                r.append(c[5])
-                r.append(c[6])
-                r.append(c[7])
-                r.append(c[8])
-                r.append(c[9])
-           data.append(r)
-        print(data)
+          retorno = {"usuarioId":row[9],
+              "scoreQuimica":row[3],
+              "scoreMate":row[4],
+              "scoreGeografia":row[5],
+              "scoreFisica":row[6],
+              "scoreHistoria":row[7],
+              "EnemigosEliminados":row[8]
+            }
+          data.append(retorno)
        
+          
 
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL

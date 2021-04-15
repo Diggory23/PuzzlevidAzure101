@@ -9,10 +9,17 @@
     
     <ul>
         {% for u in data %}
-        <li>{{u}}</li>
+        <li>Usuario: {{u.usuarioId}}</li>
+        <li>Score quimica: {{u.scoreQuimica}}</li>
+        <li>Score mate: {{u.scoreMate}}</li>
+        <li>Score geografia: {{u.scoreGeografia}}</li>
+        <li>Score fisica: {{u.scoreFisica}}</li>
+        <li>Score historia: {{u.scoreHistoria}}</li>
+        <li>Enemigos eliminados: {{u.EnemigosEliminados}}</li>
         {% endfor %}
         
     </ul>
 </body>
 </html>
+
 
