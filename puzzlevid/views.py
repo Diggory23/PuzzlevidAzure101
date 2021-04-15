@@ -35,14 +35,14 @@ def estadisticas(request):
         cursor.execute("SELECT * from puzzlevid_session;")
         rows = cursor.fetchall()
         for row in rows:
-            quimica = row[2]
-            mate= row[3]
-            geo= row[4]
-            fisica =row[5]
-            hist = row[6]
-            enemigos = row[7]
-            usuario_id = row[8]
-        print(quimica)
+            quimica = row[3]
+            mate= row[4]
+            geo= row[5]
+            fisica =row[6]
+            hist = row[7]
+            enemigos = row[8]
+            usuario_id = row[9]
+        print(usuario_id)
 
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
