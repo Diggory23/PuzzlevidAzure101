@@ -6,15 +6,17 @@
 </head>
 <body>
     <h1>Estadisticas generales de Puzzlevid</h1>
+    
     <ul>
         {% for u in data %}
-        <li>Usuario: {{u[9]}}</li>
+        <li>{{u}}</li>
+        <!-- <li>Usuario: {{u[9]}}</li>
         <li>Score quimica: {{u[3]}}</li>
         <li>Score mate: {{u[4]}}</li>
         <li>Score geografia: {{u[5]}}</li>
         <li>Score fisica: {{u[6]}}</li>
         <li>Score historia: {{u[7]}}</li>
-        <li>Enemigos eliminados: {{u[8]}}</li>
+        <li>Enemigos eliminados: {{u[8]}}</li> -->
         {% endfor %}
         
     </ul>
