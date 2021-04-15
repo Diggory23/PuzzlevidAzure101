@@ -65,5 +65,6 @@ def estadisticas(request):
               "scoreHistoria":hist,
               "EnemigosEliminados":enemigos
         }
+    print(retorno)
     return render(request, 'estadisticas.html', retorno)
 
