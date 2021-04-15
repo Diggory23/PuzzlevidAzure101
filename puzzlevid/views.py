@@ -42,6 +42,7 @@ def estadisticas(request):
             hist = row[7]
             enemigos = row[8]
             usuario_id = row[9]
+        print(row)
 
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
