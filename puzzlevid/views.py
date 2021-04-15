@@ -18,13 +18,6 @@ def steam(request):
 
 @csrf_exempt
 def estadisticas(request):
-    quimica =[]
-    mate=[]
-    geo=[]
-    fisica=[]
-    hist=[]
-    enemigos=[]
-    usuario_id=[]
 
     #Create a connection credentials to the PostgreSQL database
     try:
@@ -41,7 +34,7 @@ def estadisticas(request):
         #Display the PostgreSQL version installed
         cursor.execute("SELECT * from puzzlevid_session;")
         rows = cursor.fetchall()
-        print(rows)
+        
         #return HttpResponse(rows)
         data=[]
 
@@ -55,6 +48,7 @@ def estadisticas(request):
               "EnemigosEliminados":row[8]
             }
           data.append(retorno)
+        print(data)
        
           
 
