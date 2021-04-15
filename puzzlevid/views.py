@@ -77,5 +77,5 @@ def estadisticas(request):
         }
     print(retorno)
     '''
-    return render(request, 'estadisticas.html', {"data":rows})
+    return render(request, 'estadisticas.html', {"data":data})
     
