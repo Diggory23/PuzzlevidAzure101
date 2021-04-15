@@ -22,8 +22,8 @@ def estadisticas(request):
     #Create a connection credentials to the PostgreSQL database
     try:
         connection = psycopg2.connect(
-            user = "ragnar",
-            password = "Raramuri23%",
+            user = "admin",
+            password = "ragnar",
             host = "localhost",
             port = "5432",
             database = "puzzlevid"
