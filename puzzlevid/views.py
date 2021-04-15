@@ -42,7 +42,7 @@ def estadisticas(request):
         cursor.execute("SELECT * from puzzlevid_session;")
         rows = cursor.fetchall()
         print(rows)
-        return HttpResponse(rows)
+        #return HttpResponse(rows)
         '''
         for row in rows:
            
@@ -81,5 +81,6 @@ def estadisticas(request):
               "EnemigosEliminados":enemigos
         }
     print(retorno)
-    return render(request, 'estadisticas.html', retorno)
     '''
+    return render(request, 'estadisticas.html', rows)
+    
