@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     {% load static%}
-    <link rel="stylesheet" href="(% static 'styles.css'%}">
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
 </head>
 <body>
     <h1>Estadisticas generales de Puzzlevid</h1>
     <ul>
-        <li>Usuario: {{usuario_id}}</li>
-        <li>Score quimica: {{quimica}}</li>
-        <li>Score mate: {{mate}}</li>
-        <li>Score geografia: {{geo}}</li>
-        <li>Score fisica: {{fisica}}</li>
-        <li>Score historia: {{hist}}</li>
-        <li>Enemigos eliminados: {{enemigos}}</li>
+        {% for u in retorno %}
+        <li>Usuario: {{u.usuario_id}}</li>
+        <li>Score quimica: {{u.quimica}}</li>
+        <li>Score mate: {{u.mate}}</li>
+        <li>Score geografia: {{u.geo}}</li>
+        <li>Score fisica: {{u.fisica}}</li>
+        <li>Score historia: {{u.hist}}</li>
+        <li>Enemigos eliminados: {{u.enemigos}}</li>
+        {% endfor %}
     </ul>
 </body>
 </html>

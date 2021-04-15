@@ -55,6 +55,7 @@ def estadisticas(request):
             cursor.close()
             connection.close()
             print("PostgreSQL connection is now closed")
+            
     retorno = {"usuarioId":usuario_id,
               "score quimica":quimica,
               "score mate":mate,
