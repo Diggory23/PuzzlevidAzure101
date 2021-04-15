@@ -18,6 +18,13 @@ def steam(request):
 
 @csrf_exempt
 def estadisticas(request):
+    quimica =[]
+    mate=[]
+    geo=[]
+    fisica=[]
+    hist=[]
+    enemigos=[]
+    usuario_id=[]
 
     #Create a connection credentials to the PostgreSQL database
     try:
@@ -34,15 +41,21 @@ def estadisticas(request):
         #Display the PostgreSQL version installed
         cursor.execute("SELECT * from puzzlevid_session;")
         rows = cursor.fetchall()
+        print(rows)
+        return HttpResponse(rows)
+         '''
         for row in rows:
-            quimica = row[3]
-            mate= row[4]
+           
+            quimica.append(row[3])
+            mate.append(row[4]
             geo= row[5]
             fisica =row[6]
             hist = row[7]
             enemigos = row[8]
             usuario_id = row[9]
+           
         print(usuario_id)
+         '''
 
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
@@ -57,6 +70,7 @@ def estadisticas(request):
             connection.close()
             print("PostgreSQL connection is now closed")
 
+    
     retorno = {"usuarioId":usuario_id,
               "scoreQuimica":quimica,
               "scoreMate":mate,
