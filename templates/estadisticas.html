@@ -8,14 +8,15 @@
     <h1>Estadisticas generales de Puzzlevid</h1>
     <ul>
         {% for u in retorno %}
-        <li>Usuario: {{u.usuario_id}}</li>
-        <li>Score quimica: {{u.quimica}}</li>
-        <li>Score mate: {{u.mate}}</li>
-        <li>Score geografia: {{u.geo}}</li>
-        <li>Score fisica: {{u.fisica}}</li>
-        <li>Score historia: {{u.hist}}</li>
-        <li>Enemigos eliminados: {{u.enemigos}}</li>
+        <li>Usuario: {{u.usuarioId}}</li>
+        <li>Score quimica: {{u.scoreQuimica}}</li>
+        <li>Score mate: {{u.scoreMate}}</li>
+        <li>Score geografia: {{u.scoreGeografia}}</li>
+        <li>Score fisica: {{u.scoreFisica}}</li>
+        <li>Score historia: {{u.scoreHistoria}}</li>
+        <li>Enemigos eliminados: {{u.EnemigosEliminados}}</li>
         {% endfor %}
     </ul>
 </body>
 </html>
+

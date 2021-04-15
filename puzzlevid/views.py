@@ -22,8 +22,8 @@ def estadisticas(request):
     #Create a connection credentials to the PostgreSQL database
     try:
         connection = psycopg2.connect(
-            user = "ragnar",
-            password = "Raramuri23%",
+            user = "admin",
+            password = "ragnar",
             host = "localhost",
             port = "5432",
             database = "puzzlevid"
@@ -57,11 +57,12 @@ def estadisticas(request):
             print("PostgreSQL connection is now closed")
 
     retorno = {"usuarioId":usuario_id,
-              "score quimica":quimica,
-              "score mate":mate,
-              "score geografia":geo,
-              "score fisica":fisica,
-              "score historia":hist,
-              "Enemigos eliminados":enemigos
+              "scoreQuimica":quimica,
+              "scoreMate":mate,
+              "scoreGeografia":geo,
+              "scoreFisica":fisica,
+              "scoreHistoria":hist,
+              "EnemigosEliminados":enemigos
         }
     return render(request, 'estadisticas.html', retorno)
+
