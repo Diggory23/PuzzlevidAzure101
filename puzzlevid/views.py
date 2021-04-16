@@ -23,7 +23,7 @@ def signup(request):
     return render(request, 'signup.html')
 
 @csrf_exempt
-def stats(request):
+def estadisticas(request):
     #Create a connection credentials to the PostgreSQL database
     try:
         connection = psycopg2.connect(
@@ -82,7 +82,7 @@ def stats(request):
         }
     print(retorno)
     '''
-    return render(request, 'stats.html', {"data":data})
+    return render(request, 'estadisticas.html', {"data":data})
     
    
 
