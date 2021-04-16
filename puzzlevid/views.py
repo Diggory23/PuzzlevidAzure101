@@ -100,10 +100,12 @@ def unity(request):
         "scoreHistoria":10,
         "EnemigosEliminados":7
     }
-    retorno={
+    retorno= [
+        {
         "userId":"diegoisunza@gmail.com",
         "valid":"True",
         "lastSession":"2021-03-21 19:04:02"
-    }
+        }
+    ]
     return JsonResponse(session)
 
