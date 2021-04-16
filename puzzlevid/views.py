@@ -16,6 +16,33 @@ def juega(request):
 def steam(request):
     return render(request, 'steam.html')
 
+def login(request):
+    return render(request, 'login.html')
+
+def signup(request):
+    return render(request, 'signup.html')
+
+@csrf_exempt
+def unity(request):
+    session={
+        "id":1,
+        "userId":1,
+        "started":"2021-03-09 13:25:00",
+        "ended":"2021-03-09 14:07:12",
+        "scoreQuimica":8,
+        "scoreMate":9,
+        "scoreGeografia":7,
+        "scoreFisica":8,
+        "scoreHistoria":10,
+        "EnemigosEliminados":7
+    }
+    retorno={
+        "userId":"diegoisunza@gmail.com",
+        "valid":"True",
+        "lastSession":"2021-03-21 19:04:02"
+    }
+    return JsonResponse(session)
+
 @csrf_exempt
 def estadisticas(request):
 

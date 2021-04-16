@@ -1,0 +1,239 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    font-family: sans-serif;
+    background-color: #000;
+}
+
+#nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar
+{
+    background-image: linear-gradient(to right, #3B2343,#17202A);
+    padding: 0 !important;
+}
+.navbar-brand img
+{
+    height: 100px;
+    padding-left: 20px;
+}
+.navbar-nav li
+{
+    padding: 0 10px;
+}
+.navbar-nav li a
+{
+    color: #fff !important;
+    font-weight: 300;
+    float: right;
+    text-align: left;
+}
+.fa-bars
+{
+    color: #fff;
+    font-size: 30px !important;
+}
+.navbar-toggler
+{
+    outline: none !important;
+}
+.navbar ul li{
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 20px; 
+    position: relative;
+}
+.navbar ul li::after{
+    content:'';
+    height: 3px;
+    width:0; 
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom:-10px;
+    transition:0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+/*-------------banner section---------------*/
+
+#banner
+{
+    background: url(background.jpg);
+    display: table;
+    height: 100%;
+    position:relative;
+    width:100%;
+    background-size: cover;
+    color: #fff;
+    padding-top: 5%; 
+}
+.banner h2{
+    text-transform: uppercase;
+    font size:800%;
+    font-weight: 100;
+}
+.text-center h3{
+   font size:100%;
+    font-weight: 100;
+}
+.banner-img
+{
+    width: 60px;
+    margin-top: 0px;
+}
+
+/*---------------puzzlevid--------------*/
+
+#puzzlevid
+{
+    background: #120A1F;
+    padding-bottom: 50px;
+    padding-top: 80px;
+    color: aliceblue;
+    text-align: justify;
+}
+.about-title
+{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 8%;
+    color: aliceblue;
+}
+.puzzlevid-img
+{
+    width: 500px;
+    margin-top: 0px;
+}
+#puzzlevid ul li
+{
+    margin: 10px 0;
+}
+
+#puzzlevid ul
+{
+    margin-left: 20px;
+}
+/*-----------tutorial--------------*/
+
+#tutorial
+{
+    padding: 80px 0;
+    background: #120A1F;
+}
+.service-img
+{
+    width: 100px;
+    height: 80;
+  
+}
+.services
+{
+    padding: 20px;
+    color: aliceblue;
+}
+.services h4
+{
+    padding: 5px;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+.title{
+    color: aliceblue;
+}
+.title::before
+{
+    content: '';
+    background: #7b1798;
+    height: 5px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(63px);    
+}
+.title::after
+{
+    content: '';
+    background: #7b1798;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(8px); 
+}
+
+
+/*--------Equipo--------*/
+
+#equipo
+{
+    padding: 80px 0;
+    background-color: #120A1F;;
+}
+.carousel-item img{
+    height: 200px;
+    border-radius: 50%;
+}
+.carousel-item{
+    text-align: center;
+    height: 450px;
+}
+
+.carousel-caption{
+    z-index: 1 !important;
+    box-shadow: 0 0 5px 1px rgba(246,145,205,0.5);
+    border-radius: 4px;
+    margin-bottom: 50px;
+    background-image: linear-gradient(to right, #3B2343,#17202A);
+}
+.carousel-caption h6{
+    margin-top: 5px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fff !important;
+}
+.carousel-caption p{
+    text-align: center;
+    padding: 0 50px;
+    font-size: 15px;
+    color: #fff !important;
+}
+.carousel-indicators li{
+    background-color: #009688 !important;
+}
+
+@media only screen and (max-width: 800px){
+    .carousel-item
+    {
+    height: 520px;
+    z-index: 1 !important;
+    }
+    .carousel-caption{
+        margin: 0 10px 50px 10px;
+        left: 0 !important;
+        right: 0 !important;
+    }
+}
+
+#stats{
+    padding: 80px 0;
+    background: #120A1F;
+    color: #fff;
+}
+.stats-img
+{
+    width: 100px;
+    margin-top: 0px;
+}

@@ -1,76 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static%}
-    <link rel="stylesheet" href="{% static 'styles.css'%}">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Login</title>
-</head>
 
-<body>
-    <div class="banner bg3">
-        <div class="navbar">
-            {% load static %}
-             <a href="{% url 'juega' %}"><img src="{% static 'images/logo.png'%}" class="logo"></a>
-            <ul>
-                <li><a href="{% url 'index' %}">Iniciar Sesión</a></li>
-                <li><a href="{% url 'juega' %}">Jugar</a></li>
-                <li><a href="{% url 'steam' %}">STEAM</a></li>
-            </ul>
-        </div>
-
-        <div class="row">
-        <div class="col2">
-           <center>
-            <div class="cardlog">
-                <div class="inner-box" id="cardlog">
-                <div class="card-front">
-                    <h5>LOGIN</h5>
-                    <br>
-                    <form>
-                        <input type="email" class="input-box" placeholder="Correo electrónico" required>
-                        <input type="password" class="input-box" placeholder="Contraseña" required>
-                        <a href="">Olvidé la contraseña</a>
-                        <button type="submit" class="submit-btn">Submit</button>
-                        <input type="checkbox"><span>Recuérdame</span>
-                    </form>
-                    <br>
-                    <button type="button" class="btn" onclick="openRegister()">Registrarse</button>
-                    
-                </div>
-                <div class="card-back"> 
-                 <h5>REGISTRO</h5>
-                    <br>
-                    <form>
-                       <input type="text" class="input-box" placeholder="Nombre" required>
-                       <input type="text" class="input-box" placeholder="Apellido" required>
-                       <input type="date" class="input-box" placeholder="fecha de nacimiento" required>
-                        <input type="email" class="input-box" placeholder="Correo electrónico" required>
-                        <input type="password" class="input-box" placeholder="Contraseña" required>
-                        <button type="submit" class="submit-btn">Submit</button>
-                    </form>
-                    <button type="button" class="btn" onclick="openLogin()">Ya tengo cuenta</button>  
-                </div>
-                </div>
+<html>
+    <head>
+        {% load static%}
+        <link rel="stylesheet" href="{% static 'styles.css'%}">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <title>Login</title>
+    </head>
+    <body>
+        <div class="banner bg2">
+            <div class="navbar">
+                {% load static %}
+                 <a href="{% url 'login' %}"><img src="{% static 'images/logo.png'%}" class="logo"></a>
+                <ul>
+                    <li><a href="{% url 'steam' %}">STEAM</a></li>
+                    <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                </ul>
             </div>
-        </center>
-        </div>
+            <div class="row4">
                 
-</div>
-    
+            </div>
+            <div class="row3">
+                <h1>STEAM</h1>
+            </div>
+            <div class="row4">
+                
+            </div>
+            <div class="row2">
+                <div class="cardinfo">
+                    {% load static %}
+                  <center><img src="{% static 'images/steam.png'%}"></center>
+                  <h4>¿Qué es STEAM?</h4>
+                  <br>
+                   <p>STEM es una tendencia mundial que promueve la enseñanza de Ciencias, Tecnología, Ingeniería y Matemáticas (por sus siglas en inglés) como pilares para el desarrollo sostenible y bienestar social. Ahora se ha incorporado la A (de arte) para hacer evidente la presencia del pensamiento creativo y del desarrollo de las habilidades socioemocionales: STEAM. </p> </div>
+                  <div class="cardinfo">
+                    {% load static %}
+                  <center><img src="{% static 'images/impacto.png'%}"></center>
+                  <h4>Impacto del movimiento</h4>
+                  <br>
+                   <p>Movimiento STEAM es una asociación sin fines de lucro que está liderando un movimiento regional que impulsa la Educación y el talento STEAM, los empleos del futuro y la innovación, con visión social e incluyente.</p> </div>
+                   <div class="cardinfo">
+                    {% load static %}
+                  <center><img src="{% static 'images/mujeres.png'%}"></center>
+                  <h4>Mujeres</h4>
+                  <br>
+                   <p>Según datos de la OCDE, sólo el 9% de las niñas mexicanas piensan elegir carreras STEM (Ciencias, Tecnología, Ingeniería y Matemáticas por sus siglas en inglés), en comparación con 28% de los niños. ¿Qué podemos hacer para que las niñas, adolescentes y jóvenes también se visualicen como profesionales en STEM?¡Impulsarlas y apoyarlas es indispensable! </p> </div>
+            </div>
+                    
     </div>
-    <script>
-    var cardlog = document.getElementById("cardlog");
         
-    function openRegister(){
-        cardlog.style.transform = "rotateY(-180deg)"; 
-    }
-    function openLogin(){
-        cardlog.style.transform = "rotateY(0deg)"; 
-    }
-    </script>
-</body>
-</html>
+       
+      
+    </body>
+    </html>

@@ -1,44 +1,184 @@
+
 <html>
-<head>
-    {% load static%}
-    <link rel="stylesheet" href="{% static 'styles.css'%}">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Puzzlevid</title>
-</head>
-<body>
-    <div class="banner">
-        <div class="navbar"> 
-            {% load static %}
-            <a href="{% url 'juega' %}"><img src="{% static 'images/logo.png'%}" class="logo"></a>
-            <ul>
-                <li><a href="{% url 'index' %}">Iniciar Sesión</a></li>
-                <li><a href="{% url 'juega' %}">Jugar</a></li>
-                <li><a href="{% url 'steam' %}">STEAM</a></li>
-            </ul>
-        </div>
-
-        <div class="row">
-        <div class="col">
-            <h1>Puzzlevid-19</h1>
-            <p> En un futuro no tan lejano la humanidad se ve amenzada por un virus totalmente nuevo, adentrate en este mundo futurista para ayudar a encontrar la cura a este misterioso virus y así salvar a todos. Para conseguirlo necesitarás superar distintas pruebas que requeriaran de tus habilidades como científico.</p>
-            </div>
-            <div class="col1"></div>
-        <div class="col">
-           <center>
-            <a href="exe.zip" download="Puzzlevid.zip" ><div class="card card1">
-                <h5> Juega</h5>
-                <p1> Descarga el ejecutable para jugar</p1>
-            </div></a>
-            </center>
-            </div>
-    
+    <head>
+        <meta charset="utf-8">
+        <meta name= "viewport" content="width=device-width, initial-scale=1.0">
+        <title>Puzzlevid</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        {% load static%}
+        <link rel="stylesheet" href="{% static 'styles3.css'%}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+    <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#"><img src="logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#top">DESCARGAR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#puzzlevid">PUZZLEVID-19</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tutorial">TUTORIAL</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#equipo">EQUIPO</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#stats">STATS</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </section>  
         
-</div>
-
+    <!--------------Descargar-------------->   
+        
+    <section id="banner">
+      <div class="container text-center">
+         <h2>PUZZLEVID-19</h2>
+          <h3>Salva el mundo mientras aprendes</h3>
+          <p>Descarga para windows</p>
+          {% load static%}
+          <a href="https://www.apple.com/mx/"> <img src="{% static 'images/Windows.png'%}"class="banner-img"> </a>
+          </div>   
+      
+    </section>  
+        
+    <!----------Puzzlevid--------->   
     
+    <section id="puzzlevid">
+    <div class="container">
+    <br>
+    <br>
+    <h1 class="title text-center">PUZZLEVID-19</h1>
+    <div class="row">
+    <div class="col-md-6 about-us">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="about-title">Sobre el juego </p>
+     En un futuro la humanidad se ve amenzada por un virus totalmente nuevo, adentrate en este mundo futurista para ayudar a encontrar la cura a este misterioso virus y así salvar a todos. Para conseguirlo necesitarás superar distintas pruebas que requeriaran de tus habilidades como científico.
+    </div> 
+    <div class="col-md-6">
+        {% load static%}
+    <img src="{% static 'images/logo.png'%}" class="img-fluid">    
     </div>
-</body>
-</html>
+    </div>
+    </div>  
+    </section>
+    
+    <!------------Tutorial-------------->
+    
+    <section id="tutorial">
+    <div class="container text-center">
+    <h1 class="title">Controles</h1>
+    <div class="row text-center">
+    <div class="col-md-4 services">
+        {% load static%}
+    <img src="{% static 'images/asdw.png'%}" class="service-img">
+    <h4>Moverse</h4>
+    <p>Con la tecla "D" avanza hacia la derecha, con "A" hacia la izquierda y con "W" saltas .</p>
+    </div>  
+    <div class="col-md-4 services">
+        {% load static%}
+    <img src="{% static 'images/spacebar.jpg'%}" class="service-img">
+    <h4>Lanzar ataques</h4>
+    <p>En ciertos niveles es posible lanzar ataques con la barra espaciadora.</p>
+    </div>  
+    <div class="col-md-4 services">
+        {% load static%}
+    <img src="{% static 'images/enemigo.png'%}" class="service-img">
+    <h4>Vencer Enemigos</h4>
+    <p>Debes saltar sobre ellos para vencerlos o puedes lanzar ataques si el nivel lo permite</p>
+    </div>  
+    </div>   
+    </div>   
+    </section>
+      
+        
+    <!----------------Equipo---------------->  
+    <section id="equipo"> 
+    <div class="container text-center">
+    <h1 class="title">Equipo</h1>
+    <div class="bd-example">
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            {% load static%}
+            <img src="{% static 'images/Alan.jpg'%}" >
+            <div class="carousel-caption">
+              <h6>Alan Aguirre</h6>
+              <p>Estudiante de ITC <br>Desarrollador web en front-end <br>Fundador de puzzlevid-19</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            {% load static%}
+            <img src="{% static 'images/manu.jpg'%}">
+            <br>
+            <div class="carousel-caption">
+              <h6>Manuel Hernández</h6>
+              <p>Estudiante de ITC <br>Diseño y planeación <br>Fundador de puzzlevid-19</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            {% load static%}
+            <img src="{% static 'images/isunza.jpg'%}">
+            <div class="carousel-caption">
+              <h6>Diego Isunza</h6>
+              <p>Estudiante de ITC <br>Desarrollador web en back-end <br>Fundador de puzzlevid-19</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            {% load static%}
+            <img src="{% static 'images/Compita.jpg'%}">
+            <div class="carousel-caption">
+              <h6>Diego Rodriguez</h6>
+              <p>Estudiante de ITC <br>Desarrollador de viedeojuegos en Unity <br>Fundador de puzzlevid-19</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </section>    
+        
+    <!------------stats ------------>   
+    <section id="stats">
+    <div class="container text-center">
+         <h2>Estadísticas de las partidas</h2>
+          <h3>Haz click en el logo para dirigirte al sitio de puntuaciones</h3>
+          {% load static%}
+          <a href="{% url 'stats' %}"> <img src="{% static 'images/analytics.png'%}"class="stats-img"> </a>
+          </div> 
+    </section>    
+        
+    <!------------Smooth Scroll--------------->   
+        <script src="smooth-scroll.js"></script>
+        <script>
+           var scroll = new SmoothScroll('a[href*="#"]');
+        </script>
+        
+        
+    
+    </body>
+    </html>
+    
+    
