@@ -32,18 +32,18 @@ body {
       height: 150px;
     }
 .img-1 {
-    background-image: url('ciencia.jpg');
+    background-image: url("/static/images/ciencia.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .img-2 {
-    background-image: url('steam.jpg');
+    background-image: url("/static/images/steam.jpg");
     background-size: cover;
     background-position: center;
 }
 .img-3 {
-    background-image: url('leaderboard.jpg');
+    background-image: url("/static/images/leaderboard.jpg");
     background-size: cover;
     background-position: center;
 }

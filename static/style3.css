@@ -68,7 +68,7 @@ body
 
 #banner
 {
-    background: url(background.jpg);
+    background: url("/static/images/background.jpg");
     display: table;
     height: 100%;
     position:relative;
