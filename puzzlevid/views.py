@@ -22,6 +22,9 @@ def login(request):
 def signup(request):
     return render(request, 'signup.html')
 
+def stats(request):
+    return render(request, 'stats.html')
+
 @csrf_exempt
 def unity(request):
     session={

@@ -237,3 +237,22 @@ body
     width: 100px;
     margin-top: 0px;
 }
+
+#stats{
+    padding: 80px 0;
+    background: #120A1F;
+    color: #fff;
+}
+.stats-img
+{
+    width: 100px;
+    margin-top: 0px;
+}
+
+#indicadores{
+background: #120A1F;
+color: aliceblue;
+background-size: cover;
+height: 100%;
+    
+}
