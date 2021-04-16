@@ -22,33 +22,8 @@ def login(request):
 def signup(request):
     return render(request, 'signup.html')
 
+@csrf_exempt
 def stats(request):
-    return render(request, 'stats.html')
-
-@csrf_exempt
-def unity(request):
-    session={
-        "id":1,
-        "userId":1,
-        "started":"2021-03-09 13:25:00",
-        "ended":"2021-03-09 14:07:12",
-        "scoreQuimica":8,
-        "scoreMate":9,
-        "scoreGeografia":7,
-        "scoreFisica":8,
-        "scoreHistoria":10,
-        "EnemigosEliminados":7
-    }
-    retorno={
-        "userId":"diegoisunza@gmail.com",
-        "valid":"True",
-        "lastSession":"2021-03-21 19:04:02"
-    }
-    return JsonResponse(session)
-
-@csrf_exempt
-def estadisticas(request):
-
     #Create a connection credentials to the PostgreSQL database
     try:
         connection = psycopg2.connect(
@@ -107,5 +82,28 @@ def estadisticas(request):
         }
     print(retorno)
     '''
-    return render(request, 'estadisticas.html', {"data":data})
+    return render(request, 'stats.html', {"data":data})
     
+   
+
+@csrf_exempt
+def unity(request):
+    session={
+        "id":1,
+        "userId":1,
+        "started":"2021-03-09 13:25:00",
+        "ended":"2021-03-09 14:07:12",
+        "scoreQuimica":8,
+        "scoreMate":9,
+        "scoreGeografia":7,
+        "scoreFisica":8,
+        "scoreHistoria":10,
+        "EnemigosEliminados":7
+    }
+    retorno={
+        "userId":"diegoisunza@gmail.com",
+        "valid":"True",
+        "lastSession":"2021-03-21 19:04:02"
+    }
+    return JsonResponse(session)
+

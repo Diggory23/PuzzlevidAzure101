@@ -46,6 +46,22 @@
           <h3>Aquí puedes consultar las puntuaciones de diferentes categorías</h3>
           </div> 
     </div>  
+
+    <h1>Estadisticas generales de Puzzlevid</h1>
+    
+    <ul>
+        {% for u in data %}
+        <br>
+        <li>Usuario: {{u.usuarioId}}</li>
+        <li>Score quimica: {{u.scoreQuimica}}</li>
+        <li>Score mate: {{u.scoreMate}}</li>
+        <li>Score geografia: {{u.scoreGeografia}}</li>
+        <li>Score fisica: {{u.scoreFisica}}</li>
+        <li>Score historia: {{u.scoreHistoria}}</li>
+        <li>Enemigos eliminados: {{u.EnemigosEliminados}}</li>
+        {% endfor %}
+        
+    </ul>
     </section>
     
     </body>
