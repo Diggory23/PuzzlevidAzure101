@@ -109,3 +109,7 @@ def unity(request):
     ]
     return JsonResponse(session)
 
+@csrf_exempt
+def infoUsuario(request):
+    user=request.POST.get('data_a', '')
+    return user
