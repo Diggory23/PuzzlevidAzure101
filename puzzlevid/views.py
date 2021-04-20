@@ -113,4 +113,4 @@ def unity(request):
 def infoUsuario(request):
     #user = loads(request.body)
     user = request.POST.get('data_a', False)
-    return JsonResponse(user)
+    return JsonResponse({'userID': user})
