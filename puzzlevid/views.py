@@ -112,5 +112,5 @@ def unity(request):
 @csrf_exempt
 def infoUsuario(request):
     #user = loads(request.body)
-    user = request.POST.get('data_a')
+    user = request.POST.get('data_a', False)
     return JsonResponse(user)
