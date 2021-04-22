@@ -117,3 +117,10 @@ def unity(request):
     ]
     return JsonResponse(session)
 
+@csrf_exempt
+def infoUsuario(request):
+    body_unicode = request.body.decode('utf-8')
+    body = loads(body_unicode)
+    user = body['data_a']
+    return HttpResponse(str(user))
+
