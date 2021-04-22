@@ -21,8 +21,17 @@ def steam(request):
 def login(request):
     return render(request, 'login.html')
 
-@require_POST
 def signup(request):
+    user_list= Usuario.objects.order_by('id')
+
+    form = PuzzlevidForm()
+
+    context= {'form':form}
+
+    return render(request, 'login.html',context)
+
+@require_POST
+def addUsers(request):
    form = PuzzlevidForm(request.POST)
     
    if form.is_valid():
