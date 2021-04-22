@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 
@@ -10,5 +10,9 @@ urlpatterns = [
     path('login',views.login, name ='login'),
     path('unity/', views.unity, name='unity')
 ]
-
 #unity pasa datos entre unity y la base de datos
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
+

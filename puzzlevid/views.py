@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.decorators.http import require_POST
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from json import loads
 import psycopg2
 from puzzlevid.models import Usuario, Nivel, Session, Intento
+from .forms import PuzzlevidForm
 
 # Create your views here.
 def index(request):
@@ -19,8 +21,14 @@ def steam(request):
 def login(request):
     return render(request, 'login.html')
 
+@require_POST
 def signup(request):
-    return render(request, 'signup.html')
+   form = PuzzlevidForm(request.POST)
+    
+   if form.is_valid():
+        new_user = form.save()
+        
+   return redirect('login')
 
 @csrf_exempt
 def estadisticas(request):
