@@ -41,6 +41,7 @@ def addUsers(request):
    return redirect('login')
 
 @csrf_exempt
+@login_required
 def estadisticas(request):
     #Create a connection credentials to the PostgreSQL database
     try:
