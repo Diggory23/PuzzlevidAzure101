@@ -72,20 +72,7 @@
                 <div class="align-self-center w-100 px-lg-5 py-lg-4 p-4">
                 <h1 class="font-weight-bold mb-4">Hola, ¿Hora de jugar?</h1>
 
-                {% block content %}
-
-                {% if form.errors %}
-                  <p>Tu usuario y tu contraseña no son los indicados. Por favor intentalo de nuevo.</p>
-                {% endif %}
-
-                {% if next %}
-                  {% if user.is_authenticated %}
-                    <p>Tu cuenta no tiene acceso a esta página. Para proceder, por favor ingrese con una cuenta que si tenga. </p>
-                  {% else %}
-                    <p>Por favor ingrese para ver esta página.</p>
-                  {% endif %}
-                {% endif %}
-                <form class="mb-5" method="post" action="{% url 'login' %}">
+                <form class="mb-5" method="POST">
                     {% csrf_token %}
                     <div class="mb-4">
                       <label for="correo" class="form-label font-weight-bold">Email</label>
@@ -99,7 +86,7 @@
                     
                     <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
                   </form>
-                  {% endblock %}
+                  
                 </div>
                 
                 <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 mt-auto w-100">
