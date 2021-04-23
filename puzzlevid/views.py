@@ -28,7 +28,7 @@ def signup(request):
 
     context= {'form':form}
 
-    return render(request, 'login.html',context)
+    return render(request, 'signup.html',context)
 
 @require_POST
 def addUsers(request):
