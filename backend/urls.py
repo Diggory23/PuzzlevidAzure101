@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth.views import LoginView, logout
+from django.contrib.auth.views import LoginView,LogoutView
+from django.conf import settings
+
+
 
 
 
@@ -23,5 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('puzzlevid.urls')),
     path('login/',LoginView.as_view(), name='login'),
-    path('logout/',logout, name='logout')
+    path('logout/',LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
 ]
