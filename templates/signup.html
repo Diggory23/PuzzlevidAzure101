@@ -74,6 +74,7 @@
                 <h1 class="font-weight-bold mb-3">Regístrate</h1>
                 </center>
                 <form class="mb-4" method="post" action="{% url 'login' %}">
+                  {% csrf_token %}
                   
                    <div class="mb-3">
                       <label for="Nombre" class="form-label font-weight-bold">Nombre</label>
