@@ -22,6 +22,6 @@ from django.contrib.auth.views import LoginView, logout
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('puzzlevid.urls')),
-    path('login/',LoginView.as_view(), name='login')
-    path('logout/',)
+    path('login/',LoginView.as_view(), name='login'),
+    path('logout/',logout, name='logout')
 ]
