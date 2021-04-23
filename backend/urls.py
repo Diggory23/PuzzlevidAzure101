@@ -15,14 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth import login
+from django.contrib.auth.views import LoginView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('puzzlevid.urls')),
-    path('login/',login, {
-        'template_name': "login.html"},
-        name='login'),
+    path('login/',LoginView.as_view(template_name='login.html'))
   
 ]
