@@ -21,6 +21,5 @@ from django.contrib.auth.views import LoginView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('puzzlevid.urls')),
-    path('login/',LoginView.as_view(template_name='login.html'))
-  
+    path('login/',LoginView.as_view(), name='login')
 ]
