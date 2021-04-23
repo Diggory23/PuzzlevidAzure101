@@ -20,5 +20,4 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('puzzlevid.urls')),
-    path('login/', include('django.contrib.auth.urls'))
 ]
