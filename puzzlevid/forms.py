@@ -2,7 +2,7 @@ from django import forms
 from .models import Usuario
 
 class PuzzlevidForm(forms.ModelForm):
-    class meta:
+    class Meta:
         model = Usuario
-        fields=['nombre','apellido','gameTag','email','password','creadoEn','birth']
+        fields = "__all__"
         
