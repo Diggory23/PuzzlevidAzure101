@@ -23,8 +23,9 @@ def iniciarSesion(request):
     return render(request, 'registration/iniciarSesion.html')
 
 
-def signup(request):
-   return render(request, 'signup.html')
+def signup(response):
+   form = UserCreationForm()
+   return render(response, 'register/signup.html',{'form':form})
 
 # def signup(request):
 #     user_list= Usuario.objects.order_by('id')
