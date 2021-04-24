@@ -8,7 +8,7 @@ from django.contrib.auth import login, authenticate
 from json import loads
 import psycopg2
 from puzzlevid.models import Usuario, Nivel, Session, Intento
-#from .forms import RegistrationForm
+from .forms import RegistrationForm
 
 # Create your views here.
 def index(request):
@@ -20,12 +20,11 @@ def juega(request):
 
 
 def iniciarSesion(request):
-    return render(request, 'registration/iniciarSesion.html')
+    return render(request, 'iniciarSesion.html')
 
 
 def signup(request):
-    form = UserCreationForm()
-    return render(request, 'register/signup.html', {'form': form})
+   return render(request, 'signup.html')
 
 # def signup(request):
 #     user_list= Usuario.objects.order_by('id')
