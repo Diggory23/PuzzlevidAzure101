@@ -73,46 +73,18 @@
                 <center>
                 <h1 class="font-weight-bold mb-3">Regístrate</h1>
                 </center>
-                <form class="mb-4" method="POST" action="{% url 'signup' %}">
+                {%block content%}
+                <form class="mb-4" method="POST">
                   {% csrf_token %}
-                  
-                   <div class="mb-3">
-                      <label for="Nombre" class="form-label font-weight-bold">Nombre</label>
-                      <input id="nombre" type="text" class="form-control bg-dark-x border-0"  placeholder="Ingresa tu nombre">
-                    </div>
-                    
-                    <div class="mb-3">
-                      <label for="Apellido" class="form-label font-weight-bold">Apellido</label>
-                      <input id="apellido" type="text" class="form-control bg-dark-x border-0"  placeholder="Ingresa tu Apellido">
-                    </div>
-                    
-                    <div class="mb-3">
-                      <label for="Nacimiento" class="form-label font-weight-bold">Fecha de nacimiento</label>
-                      <input id="fecha" type="date" class="form-control bg-dark-x border-0"  placeholder="Ingresa tu Fecha de nacimiento">
-                    </div>
-                    
-                    <div class="mb-3">
-                      <label for="gamertag" class="form-label font-weight-bold">GamerTag</label>
-                      <input id="gamertag" type="text" class="form-control bg-dark-x border-0"  placeholder="Ingresa tu apodo">
-                    </div>
-                    
-                    <div class="mb-4">
-                      <label for="correo" class="form-label font-weight-bold">Email</label>
-                      <input id="correo" type="email" class="form-control bg-dark-x border-0"  placeholder="Ingresa tu correo electrónico">
-                    </div>
-                    
-                    <div class="mb-3">
-                      <label for="contraseña" class="form-label font-weight-bold">Contraseña</label>
-                      <input id="contraseña" type="password" class="form-control bg-dark-x border-0 mb-2" placeholder="Ingresa tu contraseña" >
-                    <br>
-                    </div>
+                    {{form}}
                     
                     <button type="submit" class="btn btn-primary w-100" name="Create User">Registrarme</button>
                   </form>
+                  {%endblock%}
                 </div>
                 
                 <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 mt-auto w-100">
-                    <p class="d-inline-block mb-0">¿Ya tienes una cuenta?</p> <a href="{% url 'login' %}" class="text-light font-weight-bold text-decoration-none">Iniciar sesión</a>
+                    <p class="d-inline-block mb-0">¿Ya tienes una cuenta?</p> <a href="{% url 'iniciarSesion' %}" class="text-light font-weight-bold text-decoration-none">Iniciar sesión</a>
                 </div>
             </div>
         </div>

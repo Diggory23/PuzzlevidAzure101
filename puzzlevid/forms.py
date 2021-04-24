@@ -4,7 +4,7 @@ from .models import Usuario
 
 
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField(max_length=60, help_text='Requerido. Por favor ingrese una direccion de e-mail correcta.')
+    #email = forms.EmailField(max_length=60, help_text='Requerido. Por favor ingrese una direccion de e-mail correcta.')
 
     class Meta:
         model = Usuario

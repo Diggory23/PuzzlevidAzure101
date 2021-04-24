@@ -24,17 +24,8 @@ def iniciarSesion(request):
 
 
 def signup(request):
-    form = RegistrationForm(request.POST)
-    if form.is_valid():
-        form.save()
-        username = form.cleaned_data.get('email')
-        password = form.cleaned_data.get('password')
-        user = authenticate(username=username, password=password)
-        login(request, user)
-        return redirect('juega')
-    else:
-        form = RegistrationForm()
-    return render(request, 'signup.html', {'form': form})
+    form = UserCreationForm()
+    return render(request, 'register/signup.html', {'form': form})
 
 # def signup(request):
 #     user_list= Usuario.objects.order_by('id')
