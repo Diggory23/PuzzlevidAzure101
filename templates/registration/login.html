@@ -72,7 +72,7 @@
                 <div class="align-self-center w-100 px-lg-5 py-lg-4 p-4">
                 <h1 class="font-weight-bold mb-4">Hola, ¿Hora de jugar?</h1>
 
-                <form class="mb-5" method="POST" action="{% url 'iniciarSesion' %}">
+                <form class="mb-5" method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
                     <div class="mb-4">
                       <label for="correo" class="form-label font-weight-bold">Email</label>
