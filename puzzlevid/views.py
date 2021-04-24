@@ -24,7 +24,12 @@ def iniciarSesion(request):
 
 
 def signup(response):
-   form = UserCreationForm()
+    if response.method == "POST":
+        form = UserCreationForm(response.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = UserCreationForm()
    return render(response, 'register/signup.html',{'form':form})
 
 # def signup(request):
