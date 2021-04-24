@@ -3,10 +3,12 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
 from json import loads
 import psycopg2
 from puzzlevid.models import Usuario, Nivel, Session, Intento
-from .forms import PuzzlevidForm
+from .forms import RegistrationForm
 
 # Create your views here.
 def index(request):
@@ -16,29 +18,41 @@ def index(request):
 def juega(request):
     return render(request, 'juega.html')
 
-def steam(request):
-    return render(request, 'steam.html')
 
-def login(request):
+def iniciarSesion(request):
     return render(request, 'login.html')
 
+
 def signup(request):
-    user_list= Usuario.objects.order_by('id')
+    form = RegistrationForm(request.POST)
+    if form.is_valid():
+        form.save()
+        username = form.cleaned_data.get('email')
+        password = form.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        return redirect('juega')
+    else:
+        form = RegistrationForm()
+    return render(request, 'signup.html', {'form': form})
 
-    form = PuzzlevidForm()
+# def signup(request):
+#     user_list= Usuario.objects.order_by('id')
 
-    context= {'form':form}
+#     form = PuzzlevidForm()
 
-    return render(request, 'signup.html',context)
+#     context= {'form':form}
 
-@require_POST
-def addUsers(request):
-   form = PuzzlevidForm(request.POST)
+#     return render(request, 'signup.html',context)
+
+# @require_POST
+# def addUsers(request):
+#    form = PuzzlevidForm(request.POST)
     
-   if form.is_valid():
-        new_user = form.save()
+#    if form.is_valid():
+#         new_user = form.save()
         
-   return redirect('login')
+#    return redirect('login')
 
 @csrf_exempt
 @login_required

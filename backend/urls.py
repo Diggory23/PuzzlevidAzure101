@@ -25,6 +25,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('puzzlevid.urls')),
-    path('login/',LoginView.as_view(), name='login'),
+    path('iniciarSesion/',LoginView.as_view(), name='login'),
     path('logout/',LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
 ]
