@@ -30,7 +30,7 @@ def signup(response):
             form.save()
     else:
         form = UserCreationForm()
-   return render(response, 'register/signup.html',{'form':form})
+    return render(response, 'register/signup.html',{'form':form})
 
 # def signup(request):
 #     user_list= Usuario.objects.order_by('id')
