@@ -8,7 +8,7 @@ from django.contrib.auth import login, authenticate
 from json import loads
 import psycopg2
 from puzzlevid.models import Usuario, Nivel, Session, Intento
-from .forms import RegistrationForm
+#from .forms import RegistrationForm
 
 # Create your views here.
 def index(request):
