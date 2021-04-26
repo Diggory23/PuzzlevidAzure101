@@ -253,5 +253,5 @@ def infoUsuario(request):
     jugador_o  = User.objects.filter(username=user)     
     jugador_objeto = Usuario.objects.filter(username=jugador_o[0].id)
     
-    return HttpResponse(jugador_objeto[0].id)
+    return HttpResponse(jugador_objeto.id)
 
