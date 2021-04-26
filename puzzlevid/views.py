@@ -44,6 +44,7 @@ def signup(response):
             birth= form.cleaned_data.get("nacimiento")
             form.save()
         values_to_insert = [(nombre,apellido,gametag,email,password,creadoEn,birth)]
+        print(values_to_insert)
         
         return redirect("/juega")
     else:
