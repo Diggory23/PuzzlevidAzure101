@@ -12,7 +12,7 @@ from .forms import RegisterForm
 def index(request):
     return render(request,'index.html')
 
-@login_required
+@login_required 
 def juega(request):
     return render(request, 'juega.html')
 
@@ -21,7 +21,7 @@ def iniciarSesion(request):
     return render(request, 'registration/iniciarSesion.html')
 
 
-def signup(response):
+def signup(response,request):
     if response.method == "POST":
         form = RegisterForm(response.POST)
         if form.is_valid():
@@ -30,6 +30,8 @@ def signup(response):
         return redirect("/juega")
     else:
         form = RegisterForm()
+
+    
     return render(response, 'register/signup.html',{'form':form})
 
 # def signup(request):
