@@ -3,12 +3,10 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate
 from json import loads
 import psycopg2
 from puzzlevid.models import Usuario, Nivel, Session, Intento
-#from .forms import RegistrationForm
+from forms import RegisterForm
 
 # Create your views here.
 def index(request):
@@ -25,11 +23,13 @@ def iniciarSesion(request):
 
 def signup(response):
     if response.method == "POST":
-        form = UserCreationForm(response.POST)
+        form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
+
+        return redirect("/juega")
     else:
-        form = UserCreationForm()
+        form = RegisterForm()
     return render(response, 'register/signup.html',{'form':form})
 
 # def signup(request):

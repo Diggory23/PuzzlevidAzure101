@@ -1,14 +1,15 @@
 from django import forms 
-#from django.contrib.auth.models import UserCreationForm
-from .models import Usuario
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.models  import User
 
 
-#class RegistrationForm(UserCreationForm):
-    #email = forms.EmailField(max_length=60, help_text='Requerido. Por favor ingrese una direccion de e-mail correcta.')
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField()
 
-    #class Meta:
-        #model = Usuario
-        #fields = ('nombre','apellido','nacimiento','gametag','email','password')
+    class Meta:
+        model = User
+        fields = ["nombre","apellido","nacimiento","gametag","email","password"]
 
 
 
