@@ -7,6 +7,7 @@ from django.contrib.auth.models  import User
 from json import loads
 from django.utils import timezone
 import psycopg2
+import hashlib
 from puzzlevid.models import Usuario, Nivel, Session, Intento
 from .forms import RegisterForm
 
@@ -253,8 +254,15 @@ def infoUsuario(request):
     jugador_o  = User.objects.filter(username=user)     
     jugador_objeto = Usuario.objects.filter(nombre=jugador_o[0].username)
     print(jugador_objeto[0].id)
-    if(jugador_objeto[0].password==pwd):
+    hash = computeMD5hash(jugador_objeto[0].password)
+    if(hash==pwd):
         return HttpResponse(jugador_objeto[0].id)
     else:
         return HttpResponse(-1)
 
+
+
+def computeMD5hash(my_string):
+    m = hashlib.md5()
+    m.update(my_string.encode('utf-8'))
+    return m.hexdigest()
