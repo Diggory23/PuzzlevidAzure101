@@ -252,7 +252,7 @@ def infoUsuario(request):
     pwd = body['data_b']
     jugador_o  = User.objects.filter(username=user)     
     jugador_objeto = Usuario.objects.filter(nombre=jugador_o[0].username)
-    #print(jugador_objeto[0].id)
+    print(jugador_objeto[0].id)
     if(jugador_objeto[0].password==pwd):
         return HttpResponse(jugador_objeto[0].id)
     else:
