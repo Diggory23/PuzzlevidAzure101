@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from json import loads
 import psycopg2
 from puzzlevid.models import Usuario, Nivel, Session, Intento
-from forms import RegisterForm
+from .forms import RegisterForm
 
 # Create your views here.
 def index(request):
