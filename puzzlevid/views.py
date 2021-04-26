@@ -233,11 +233,11 @@ def infoUsuario(request):
     user = body['data_a']
     pwd = body['data_b']
     jugador_o  = User.objects.filter(username=user)     
-    jugador_objeto = Usuario.objects.filter(nombre=jugador_o[0].username)
-    print(jugador_objeto[0].id)
-    hash = computeMD5hash(jugador_objeto[0].password)
-    if(hash==pwd):
-        return HttpResponse(jugador_objeto[0].id)
+    #jugador_objeto = Usuario.objects.filter(nombre=jugador_o[0].username)
+    print(jugador_o[0].password)
+    #hash = computeMD5hash(jugador_o[0].password)
+    if(len(hash)>10):
+        return HttpResponse(1)
     else:
         return HttpResponse(-1)
 
