@@ -66,7 +66,7 @@ def signup(response):
         cursor = connection.cursor()
         #Display the PostgreSQL version installed
         cursor.execute("""
-    INSERT INTO puzzlevid_usuario (nombre,apellido,gametag,email,password,creadoEn,birth)
+    INSERT INTO puzzlevid_usuario (nombre,apellido,'gameTag',email,password,'creadoEn',birth)
     VALUES (%s, %s, %s, %s, %s, %s, %s);""", tuple(values_to_insert))
        
           
