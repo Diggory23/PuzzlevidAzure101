@@ -6,6 +6,10 @@ from django.contrib.auth.models  import User
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
+    nacimiento = forms.DateField()
+    gametag = forms.TextField()
+    nombre = forms.TextField()
+    apellido = forms.TextField()
 
     class Meta:
         model = User
