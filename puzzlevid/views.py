@@ -33,6 +33,7 @@ def signup(response):
     password=''
     creadoEn= timezone.now()
     birth=''
+    values_to_insert=[]
     
 
     if response.method == "POST":
@@ -48,7 +49,7 @@ def signup(response):
         values_to_insert = [nombre,apellido,gametag,email,password,creadoEn,birth]
         print(values_to_insert)
         
-        return redirect("/juega")
+        
     else:
         form = RegisterForm()
 
@@ -83,7 +84,7 @@ def signup(response):
             cursor.close()
             connection.close()
             print("PostgreSQL connection is now closed")
-
+            return redirect("/juega")
   
     
     
