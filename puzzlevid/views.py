@@ -67,7 +67,7 @@ def signup(response):
         #Display the PostgreSQL version installed
         cursor.execute("""
     INSERT INTO puzzlevid_usuario (nombre,apellido,gametag,email,password,creadoEn,birth)
-    VALUES (%s, %s, %s, %s, %s, %s, %s)""", tuple(values_to_insert))
+    VALUES (%s, %s, %s, %s, %s, %s, %s);""", tuple(values_to_insert))
        
           
 
@@ -90,24 +90,6 @@ def signup(response):
     
     return render(response, 'register/signup.html',{'form':form})
 
-
-# def signup(request):
-#     user_list= Usuario.objects.order_by('id')
-
-#     form = PuzzlevidForm()
-
-#     context= {'form':form}
-
-#     return render(request, 'signup.html',context)
-
-# @require_POST
-# def addUsers(request):
-#    form = PuzzlevidForm(request.POST)
-    
-#    if form.is_valid():
-#         new_user = form.save()
-        
-#    return redirect('login')
 
 @csrf_exempt
 @login_required
