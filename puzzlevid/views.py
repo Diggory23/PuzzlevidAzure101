@@ -248,6 +248,7 @@ def infoUsuario(request):
     body_unicode = request.body.decode('utf-8')
     body = loads(body_unicode)
     user = body['data_a']
+    pwd = body['data_b']
     print(user)
-    return HttpResponse(str(user))
+    return HttpResponse(str(pwd))
 
