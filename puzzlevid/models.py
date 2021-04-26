@@ -124,9 +124,6 @@ class Usuario(models.Model):
     nombre = models.TextField()
     apellido = models.TextField()
     gameTag = models.TextField()
-    email = models.TextField()
-    password= models.TextField()
-    creadoEn =models.DateTimeField()
     birth =models.DateField()
 
 
