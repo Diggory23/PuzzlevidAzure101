@@ -11,7 +11,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["username","firstname","lastname","gametag","email","nacimiento"]
+        fields = ["username","first name","last name","gametag","email","nacimiento"]
 
 
 
