@@ -31,6 +31,7 @@ def signup(response):
     password=''
     creadoEn= timezone.now()
     birth=''
+    
 
     if response.method == "POST":
         form = RegisterForm(response.POST)
@@ -42,10 +43,43 @@ def signup(response):
             password= form.cleaned_data.get("password")
             birth= form.cleaned_data.get("nacimiento")
             form.save()
-        print(gametag)
+        values_to_insert = [(nombre,apellido,gametag,email,password,creadoEn,birth)]
+        
         return redirect("/juega")
     else:
         form = RegisterForm()
+
+    try:
+        connection = psycopg2.connect(
+            user = "admin",
+            password = "ragnar",
+            host = "localhost",
+            port = "5432",
+            database = "puzzlevid"
+        )
+
+        #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
+        cursor = connection.cursor()
+        #Display the PostgreSQL version installed
+        cursor.execute("""
+    INSERT INTO puzzlevid_usuario ('nombre', 'apellido','gametag','email','password','creadoEn','birth')
+    VALUES (?, ?, ?, ?, ?, ?, ? total fields = total ? marks)""", values_to_insert)
+       
+          
+
+
+    #Handle the error throws by the command that is useful when using python while working with PostgreSQL
+    except(Exception, psycopg2.Error) as error:
+        print("Error connecting to PostgreSQL database", error)
+        connection = None
+
+    #Close the database connection
+    
+    finally:
+        if(connection != None):
+            cursor.close()
+            connection.close()
+            print("PostgreSQL connection is now closed")
 
   
     
