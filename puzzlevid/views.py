@@ -3,6 +3,7 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models  import User
 from json import loads
 from django.utils import timezone
 import psycopg2
@@ -249,59 +250,8 @@ def infoUsuario(request):
     body = loads(body_unicode)
     user = body['data_a']
     pwd = body['data_b']
-
-    try:
-        connection = psycopg2.connect(
-            user = "admin",
-            password = "ragnar",
-            host = "localhost",
-            port = "5432",
-            database = "puzzlevid"
-        )
-
-        #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
-        cursor = connection.cursor()
-        #Display the PostgreSQL version installed
-        cursor.execute("SELECT * from puzzlevid_usuarios;")
-        rows = cursor.fetchall()
-        
-        #return HttpResponse(rows)
-        data=[]
-
-        for row in rows:
-          retorno = {
-              "id":row[0],
-              "nombre":row[1],
-              "apellido":row[2],
-              "gameTag":row[3],
-              "email":row[4],
-              "password":row[5],
-              "creadoEn":row[6],
-              "birth":row[7]
-            }
-          data.append(retorno)
-        print(data)
-       
-        for u in data:
-           if(u.gameTag == user and u.password == pwd):
-               return HttpResponse(u.id)
-           else:
-               return HttpResponse(-1)
-          
-
-
-    #Handle the error throws by the command that is useful when using python while working with PostgreSQL
-    except(Exception, psycopg2.Error) as error:
-        print("Error connecting to PostgreSQL database", error)
-        connection = None
-
-    #Close the database connection
+    jugador_o  = User.objects.filter(username=user)     
+    jugador_objeto = Usuario.objects.filter(username=jugador_o[0].id)
     
-    finally:
-        if(connection != None):
-            cursor.close()
-            connection.close()
-            print("PostgreSQL connection is now closed")
-    
-    #return HttpResponse(str(pwd))
+    return HttpResponse(jugador_objeto[0].id)
 
