@@ -252,6 +252,6 @@ def infoUsuario(request):
     pwd = body['data_b']
     jugador_o  = User.objects.filter(username=user)     
     jugador_objeto = Usuario.objects.filter(username=jugador_o[0].id)
-    
+    print(jugador_objeto)
     return HttpResponse(jugador_objeto.id)
 
