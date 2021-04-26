@@ -67,7 +67,7 @@ def signup(response):
         #Display the PostgreSQL version installed
         cursor.execute("""
     INSERT INTO puzzlevid_usuario (nombre,apellido,gameTag,email,password,creadoEn,birth)
-    VALUES (?, ?, ?, ?, ?, ?, ?)""", values_to_insert)
+    VALUES (%s, %s, %s, %s, %s, %s, %s)""", values_to_insert)
        
           
 
