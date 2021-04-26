@@ -192,5 +192,6 @@ def infoUsuario(request):
     body_unicode = request.body.decode('utf-8')
     body = loads(body_unicode)
     user = body['data_a']
+    print(user)
     return HttpResponse(str(user))
 
