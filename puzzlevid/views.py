@@ -29,9 +29,9 @@ def signup(response):
     nombre=''
     apellido=''
     gametag=''
-    email=''
-    password=''
-    creadoEn= timezone.now()
+    #email=''
+    #password=''
+    #creadoEn= timezone.now()
     birth=''
     values_to_insert=[]
     
@@ -42,11 +42,9 @@ def signup(response):
             nombre= form.cleaned_data.get("nombre")
             apellido= form.cleaned_data.get("apellido")
             gametag= form.cleaned_data.get("username")
-            email= form.cleaned_data.get("email")
-            password= form.cleaned_data.get("password")
             birth= form.cleaned_data.get("nacimiento")
             form.save()
-        values_to_insert = [nombre,apellido,gametag,email,password,creadoEn,birth]
+        values_to_insert = [nombre,apellido,gametag,birth]
         print(values_to_insert)
         
         
@@ -66,8 +64,8 @@ def signup(response):
         cursor = connection.cursor()
         #Display the PostgreSQL version installed
         cursor.execute("""
-    INSERT INTO puzzlevid_usuario (nombre,apellido,"gameTag",email,password,"creadoEn",birth)
-    VALUES (%s, %s, %s, %s, %s, %s, %s);""", tuple(values_to_insert))
+    INSERT INTO puzzlevid_usuario (nombre,apellido,"gameTag",birth)
+    VALUES (%s, %s, %s, %s);""", tuple(values_to_insert))
        
           
 
