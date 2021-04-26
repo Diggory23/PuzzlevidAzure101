@@ -12,7 +12,7 @@ from .forms import RegisterForm
 def index(request):
     return render(request,'index.html')
 
-
+@login_required
 def juega(request):
     return render(request, 'juega.html')
 
