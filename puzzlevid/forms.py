@@ -8,12 +8,10 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField()
     nacimiento = forms.DateField()
     gametag = forms.CharField()
-    nombre = forms.CharField()
-    apellido = forms.CharField()
 
     class Meta:
         model = User
-        fields = ["nombre","apellido","nacimiento","gametag","email"]
+        fields = ["username","firstname","lastname","gametag","email","nacimiento"]
 
 
 
