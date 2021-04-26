@@ -4,6 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from json import loads
+from django.utils import timezone
 import psycopg2
 from puzzlevid.models import Usuario, Nivel, Session, Intento
 from .forms import RegisterForm
@@ -21,18 +22,36 @@ def iniciarSesion(request):
     return render(request, 'registration/iniciarSesion.html')
 
 
-def signup(response,request):
+def signup(response):
+
+    nombre=''
+    apellido=''
+    gametag=''
+    email=''
+    password=''
+    creadoEn= timezone.now()
+    birth=''
+
     if response.method == "POST":
         form = RegisterForm(response.POST)
         if form.is_valid():
+            nombre= form.cleaned_data.get("nombre")
+            apellido= form.cleaned_data.get("apellido")
+            gametag= form.cleaned_data.get("username")
+            email= form.cleaned_data.get("email")
+            password= form.cleaned_data.get("password")
+            birth= form.cleaned_data.get("nacimiento")
             form.save()
-
+        print(gametag)
         return redirect("/juega")
     else:
         form = RegisterForm()
 
+  
+    
     
     return render(response, 'register/signup.html',{'form':form})
+
 
 # def signup(request):
 #     user_list= Usuario.objects.order_by('id')
