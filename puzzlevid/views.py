@@ -250,15 +250,16 @@ def infoSession(request):
     body = loads(body_unicode)
     user = body['user_ID']
     inicioSesion = body ['inicio_sesion']
-    terminoSesion = body ['terminoSesion']
+    terminoSesion = body ['termino_sesion']
     aciertosQuimica = body ['aciertosQuimica']
     aciertosMate = body['aciertosMate']
     aciertosGeo = body['aciertosGeo']
     aciertosHistoria = body['aciertosHistoria']
+    aciertosBio = body ['aciertosBio']
     enemigosEliminados = body['enemigosEliminados']
 
-    print(user + " " + inicioSesion + " " + terminoSesion + " " + aciertosQuimica + " " + aciertosMate+ " " + aciertosGeo
-    + " " + aciertosHistoria + " " + enemigosEliminados)
+    print(user + " " + inicioSesion + " " + terminoSesion + " " + aciertosQuimica + " " + aciertosMate + " " + aciertosGeo
+    + " " + aciertosHistoria + " "+ aciertosBio + " " + enemigosEliminados)
 
 
 
