@@ -84,6 +84,7 @@ def signup(response):
     
     finally:
         if(connection != None):
+            connection.commit()
             cursor.close()
             connection.close()
             print("PostgreSQL connection is now closed")
