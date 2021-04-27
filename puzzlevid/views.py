@@ -247,7 +247,9 @@ def infoUsuario(request):
 @csrf_exempt
 def infoSession(request):
     body_unicode = request.body.decode('utf-8')
+    print(body_unicode)
     body = loads(body_unicode)
+    
     user = body['user_ID']
     inicioSesion = body ['inicio_sesion']
     terminoSesion = body ['termino_sesion']
