@@ -23,10 +23,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#top">DESCARGAR</a>
+            <a class="nav-link" href="#puzzlevid">PUZZLEVID-19</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#puzzlevid">PUZZLEVID-19</a>
+            <a class="nav-link" href="#STEAM">STEAM</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#tutorial">TUTORIAL</a>
@@ -34,8 +34,8 @@
           <li class="nav-item">
             <a class="nav-link" href="#equipo">EQUIPO</a>
           </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#stats">STATS</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'estadisticas' %}">STATS</a>
           </li>
           </li>
             <li class="nav-item">
@@ -52,9 +52,22 @@
       <div class="container text-center">
          <h2>PUZZLEVID-19</h2>
           <h3>Salva el mundo mientras aprendes</h3>
-          <p>Descarga para windows</p>
+          <center>
+          <table border="0">
+          <tbody>
+        <tr>
+          <td>Descarga para windows</td>
+          <td>Descarga para Mac</td>
+        </tr>
+        <tr>
           {% load static%}
-          <a href="{% static 'Puzzlevid19'%}"> <img src="{% static 'images/Windows.png'%}"class="banner-img"> </a>
+          <td><center><a href="{% static 'Puzzlevid19'%}"> <img src="{% static 'images/Windows.png'%}"class="banner-img"> </a></center></td>
+          <td><center><a href="{% static 'Puzzlevid19'%}"> <img src="{% static 'images/apple.png'%}"class="banner-img"> </a></center></td>
+        </tr>
+    
+      </tbody>
+    </table>
+        </center>
           </div>   
       
     </section>  
@@ -83,7 +96,53 @@
     </div>
     </div>  
     </section>
-    
+
+    <!------------STEAM ------------>   
+<section id="STEAM">
+  <div class="container">
+  <br>
+  <br>
+  <h1 class="title text-center">Movimiento STEAM</h1>
+  <div class="row">
+  <div class="col-md-6">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+   <table border="0">
+        <tbody>
+      <tr>
+        <td>Haz click sobre la imagen para concer más</td>
+      </tr>
+    </tbody>
+  </table>   
+  {% load static%}
+  <a href="https://movimientosteam.org/"><img src="{% static 'images/steam.png'%}" class="img-fluid"></a>
+  <br>
+  <br>
+  </div>
+  <div class="col-md-6 about-us">
+  <br>
+  <br>
+  <br>
+  <br>
+  <p class="about-title">Sobre el movimiento </p>
+   Es un movimiento que desarrolla de manera profunda el pensamiento científico y matemático con un enfoque hacia la innovación. Propone un aprendizaje basado en la solución de problemas y desarrolla habilidades indispensables para competir en el mundo laboral del siglo XXI con visión social e incluyente.
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </div> 
+  </div>
+  </div>  
+  </section>   
     <!------------Tutorial-------------->
     
     <section id="tutorial">
@@ -165,15 +224,7 @@
     </div>
     </section>    
         
-    <!------------stats ------------>   
-    <section id="stats">
-    <div class="container text-center">
-         <h2>Estadísticas de las partidas</h2>
-          <h3>Haz click en el logo para dirigirte al sitio de puntuaciones</h3>
-          {% load static%}
-          <a href="{% url 'estadisticas' %}"> <img src="{% static 'images/analitycs.png'%}"class="stats-img"> </a>
-          </div> 
-    </section>    
+   
         
     <!------------Smooth Scroll--------------->   
         <script src="{% static 'smooth-scroll.js'%}"></script>
