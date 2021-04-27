@@ -44,7 +44,7 @@ def signup(response):
             gametag= form.cleaned_data.get("username")
             birth= form.cleaned_data.get("nacimiento")
             form.save()
-        values_to_insert = [(nombre,apellido,gametag,birth)]
+        values_to_insert = [nombre,apellido,gametag,birth]
         print(values_to_insert)
         
         
