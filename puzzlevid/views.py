@@ -241,6 +241,22 @@ def infoUsuario(request):
     else:
         return HttpResponse(-1)
 
+@csrf_exempt
+def infoSession(request):
+    body_unicode = request.body.decode('utf-8')
+    body = loads(body_unicode)
+    user = body['user_ID']
+    inicioSesion = body ['inicio_sesion']
+    terminoSesion = body ['terminoSesion']
+    aciertosQuimica = body ['aciertosQuimica']
+    aciertosMate = body['aciertosMate']
+    aciertosGeo = body['aciertosGeo']
+    aciertosHistoria = body['aciertosHistoria']
+    enemigosEliminados = body['enemigosEliminados']
+
+    print(user + " " + inicioSesion + " " + terminoSesion + " " + aciertosQuimica + " " + aciertosMate+ " " + aciertosGeo
+    + " " + aciertosHistoria + " " + enemigosEliminados)
+
 
 
 def computeMD5hash(my_string):

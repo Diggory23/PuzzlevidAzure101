@@ -9,7 +9,8 @@ urlpatterns = [
     path('estadisticas/',views.estadisticas, name='estadisticas'),
     path('iniciarSesion/',views.iniciarSesion, name ='iniciarSesion'),
     path('unity/', views.unity, name='unity'),
-    path('infoUsuario/', views.infoUsuario, name='infoUsuario')
+    path('infoUsuario/', views.infoUsuario, name='infoUsuario'),
+    path('infoSession/', views.infoSession, name='infoSession')
 ]
 #unity pasa datos entre unity y la base de datos
 
