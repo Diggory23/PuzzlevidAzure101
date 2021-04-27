@@ -116,13 +116,12 @@ def estadisticas(request):
         data=[]
 
         for row in rows:
-          retorno = {"usuarioId":row[9],
+          retorno = {"usuarioId":row[8],
               "scoreQuimica":row[3],
               "scoreMate":row[4],
               "scoreGeografia":row[5],
-              "scoreFisica":row[6],
-              "scoreHistoria":row[7],
-              "EnemigosEliminados":row[8]
+              "scoreHistoria":row[6],
+              "EnemigosEliminados":row[7]
             }
           data.append(retorno)
         print(data)
