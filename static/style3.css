@@ -74,7 +74,7 @@ th, td {
 
 #banner
 {
-    background: url(background.jpg);
+    background: url("/static/images/background.jpg");
     display: table;
     height: 100%;
     position:relative;
@@ -85,13 +85,15 @@ th, td {
 }
 .banner h2{
     text-transform: uppercase;
-    font size:800%;
+    font-size:800%;
     font-weight: 100;
 }
+
 .text-center h3{
-   font size:120%;
+   font-size:120%;
     font-weight: 100;
 }
+
 .banner-img
 {
     width: 60px;
