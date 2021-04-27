@@ -262,6 +262,7 @@ def infoSession(request):
 
     print(user + " " + inicioSesion + " " + terminoSesion + " " + aciertosQuimica + " " + aciertosMate + " " + aciertosGeo
     + " " + aciertosHistoria + " "+ aciertosBio + " " + enemigosEliminados)
+    return HttpResponse("200")
 
 
 
