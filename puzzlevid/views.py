@@ -278,9 +278,8 @@ def infoSession(request):
         cursor = connection.cursor()
         #Display the PostgreSQL version installed
         cursor.execute("""
-    INSERT INTO puzzlevid_session ("inicioSesion","terminoSesion","aciertosQuim","aciertosMate","aciertosGeo","aciertosHist",
-                                    "enemigosEliminados","usuarioId_id","aciertosBio")
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""", values_to_insert)
+    INSERT INTO puzzlevid_session 
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""", tuple(values_to_insert))
        
           
 
