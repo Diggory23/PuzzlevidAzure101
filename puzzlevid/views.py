@@ -262,7 +262,42 @@ def infoSession(request):
 
     print(user + " " + inicioSesion + " " + terminoSesion + " " + aciertosQuimica + " " + aciertosMate + " " + aciertosGeo
     + " " + aciertosHistoria + " "+ aciertosBio + " " + enemigosEliminados)
-    return HttpResponse("200")
+    
+    values_to_insert = [inicioSesion,terminoSesion,aciertosQuimica,aciertosMate,aciertosGeo,aciertosHistoria,enemigosEliminados,
+                        user,aciertosBio]
+    try:
+        connection = psycopg2.connect(
+            user = "admin",
+            password = "ragnar",
+            host = "localhost",
+            port = "5432",
+            database = "puzzlevid"
+        )
+
+        #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
+        cursor = connection.cursor()
+        #Display the PostgreSQL version installed
+        cursor.execute("""
+    INSERT INTO puzzlevid_session ("inicioSesion","terminoSesion","aciertosQuim","aciertosMate","aciertosGeo","aciertosHist",
+                                    "enemigosEliminados","usuarioId_id","aciertosBio")
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""", values_to_insert)
+       
+          
+
+
+    #Handle the error throws by the command that is useful when using python while working with PostgreSQL
+    except(Exception, psycopg2.Error) as error:
+        print("Error connecting to PostgreSQL database", error)
+        connection = None
+
+    #Close the database connection
+    
+    finally:
+        if(connection != None):
+            cursor.close()
+            connection.close()
+            print("PostgreSQL connection is now closed")
+            return HttpResponse("200")
 
 
 
