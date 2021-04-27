@@ -33,6 +33,7 @@ def signup(response):
     #password=''
     #creadoEn= timezone.now()
     birth=''
+    id=2
     values_to_insert=[]
     
 
@@ -44,8 +45,9 @@ def signup(response):
             gametag= form.cleaned_data.get("username")
             birth= form.cleaned_data.get("nacimiento")
             form.save()
-        values_to_insert = [nombre,apellido,gametag,'2000-04-27']
+        values_to_insert = [id,nombre,apellido,gametag,birth]
         print(values_to_insert)
+        id=+1
         
         
     else:
