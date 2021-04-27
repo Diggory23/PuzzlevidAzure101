@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models  import User
 from json import loads
+from django.db import connection, transaction
 from django.utils import timezone
 import psycopg2
 import hashlib
@@ -281,10 +282,10 @@ def infoSession(request):
     INSERT INTO puzzlevid_session ("inicioSesion","terminoSesion","aciertosQuim","aciertosMate","aciertosGeo","aciertosHist",
                                     "enemigosEliminados","usuarioId_id","aciertosBio")
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""", tuple(values_to_insert))
+
+   
+
        
-          
-
-
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
     except(Exception, psycopg2.Error) as error:
         print("Error connecting to PostgreSQL database", error)
@@ -294,6 +295,7 @@ def infoSession(request):
     
     finally:
         if(connection != None):
+            connection.commit()
             cursor.close()
             connection.close()
             print("PostgreSQL connection is now closed")
