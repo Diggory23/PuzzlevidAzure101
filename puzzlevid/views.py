@@ -20,8 +20,8 @@ def juega(request):
     return render(request, 'juega.html')
 
 
-def iniciarSesion(request):
-    return render(request, 'registration/iniciarSesion.html')
+def login(request):
+    return render(request, 'login.html')
 
 
 def signup(response):

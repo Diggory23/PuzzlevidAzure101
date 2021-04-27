@@ -26,7 +26,7 @@ from puzzlevid import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('puzzlevid.urls')),
-    path('iniciarSesion/',LoginView.as_view(), name='iniciarSesion'),
+    path('login/',LoginView.as_view(), name='login'),
     path('logout/',LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path("signup/",v.signup, name ="signup"),
     #path('',include("django.contrib.auth.urls")),
