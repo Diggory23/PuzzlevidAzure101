@@ -28,5 +28,6 @@ urlpatterns = [
     path('', include('puzzlevid.urls')),
     path('iniciarSesion/',LoginView.as_view(), name='iniciarSesion'),
     path('logout/',LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
-    path("signup/",v.signup, name ="signup")
+    path("signup/",v.signup, name ="signup"),
+    #path('',include("django.contrib.auth.urls")),
 ]
