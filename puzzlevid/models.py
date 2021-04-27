@@ -134,7 +134,6 @@ class Session(models.Model):
     aciertosQuim = models.IntegerField()
     aciertosMate = models.IntegerField()
     aciertosGeo = models.IntegerField()
-    aciertosFis = models.IntegerField()
     aciertosHist = models.IntegerField()
     enemigosEliminados = models.IntegerField()
 
