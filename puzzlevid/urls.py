@@ -11,7 +11,7 @@ urlpatterns = [
     path('unity/', views.unity, name='unity'),
     path('infoUsuario/', views.infoUsuario, name='infoUsuario'),
     path('infoSession/', views.infoSession, name='infoSession'),
-    path('estadisticasGlobales',views.estadisticasGlobales, name='estadisticasGlobales')
+    path('estadisticasGlobales', views.estadisticasGlobales, name='estadisticasGlobales')
 ]
 #unity pasa datos entre unity y la base de datos
 

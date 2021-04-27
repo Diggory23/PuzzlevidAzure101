@@ -25,7 +25,7 @@ def login(request):
 
 def estadisticasGlobales(request):
     return render(request, 'estadisticasGlobales.html')
-    
+
 def signup(response):
 
     nombre=''
