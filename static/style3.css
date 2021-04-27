@@ -9,7 +9,7 @@ body
     background-color: #000;
 }
 
-th, td {
+td {
   padding: 10px;
   color:white;
   font-weight: 100;
@@ -74,7 +74,7 @@ th, td {
 
 #banner
 {
-    background: url("/static/images/background.jpg");
+    background: url("/static/images/background  .jpg");
     display: table;
     height: 100%;
     position:relative;
