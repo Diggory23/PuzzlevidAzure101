@@ -23,7 +23,9 @@ def juega(request):
 def login(request):
     return render(request, 'login.html')
 
-
+def estadisticasGlobales(request):
+    return render(request, 'estadisticasGlobales.html')
+    
 def signup(response):
 
     nombre=''
