@@ -50,19 +50,16 @@
     <h3>Score Máximo</h3>
     <ul class="userlist">
         <br>
-        <li>Minutos jugados: {{data.minutos_jugados}}</li>
-        <li>Promedio de minutos jugados por sesión: {{data.promedio_min_sesion}}</li>
-        <li>Enemigos eliminados: {{data.enemigos_eliminados}} </li>
         <li>Top Five Scores: {{data.top_five_scores}} </li>
+        <div id="scores"></div>
+        <li>Minutos jugados: {{data.tiempo_jugado}}</li>
+        <div id="tiempo"></div>
+        <li>Enemigos eliminados: {{data.enemigos_eliminados}} </li>
+        <div id="enemigos"></div>
+
         <li>Duracion promedio: {{data.duracion_promedio}}</li>
       </ul>
-    <div id="scores"></div>
       
-    <h3>Mayor tiempo jugado</h3>
-
-    <h3>Duracion promedio de juego</h3>
-
-    <h3>Record minimo de terminacion de juego</h3>
     </section>
     
     </body>
@@ -73,8 +70,10 @@
         google.charts.setOnLoadCallback(createCharts);
 
         let scores = {{ data.top_five_scores }};
+        let time = {{ data.tiempo_jugado }};
         console.log(scores);
         function createCharts(){
+            scoresChart()
             scoresChart()
         }
 
@@ -83,6 +82,9 @@
               ['Lugares', 'Score'],
               ['1', scores[0]],
               ['2', scores[1]],
+              ['3', scores[2]],
+              ['4', scores[3]],
+              ['5', scores[4]],
             ]);
             var options = {
                 bar: {groupWidth: "95%"},
@@ -92,7 +94,7 @@
                     textStyle: {
                         color: "#FFFFFF"
                     },
-                    title: "Scores",
+                    title: "Lugares",
                     titleTextStyle:{
                         color: '#FFF',
                         fontSize: 20
@@ -103,7 +105,7 @@
                     baselineColor: '#FFFFFF'
                 },
                 vAxis: {
-                    title:"Lugares",
+                    title:"Puntuaciones",
                     titleStyle:{
                         color: "#FFFFFF"
                     },
@@ -123,7 +125,55 @@
             let chart = new google.visualization.ColumnChart(document.getElementById("scores"));
             chart.draw(scores_t, options);
         }
-
+        function timeCharts() {
+            var time_t = google.visualization.arrayToDataTable([
+              ['Lugares', 'Tiempo'],
+              ['1', time[0]],
+              ['2', time[1]],
+              ['3', time[2]],
+              ['4', time[3]],
+              ['5', time[4]],
+            ]);
+            var options = {
+                bar: {groupWidth: "95%"},
+                legend: "none",
+                backgroundColor: 'transparent',
+                hAxis: {
+                    textStyle: {
+                        color: "#FFFFFF"
+                    },
+                    title: "Lugares",
+                    titleTextStyle:{
+                        color: '#FFF',
+                        fontSize: 20
+                    },
+                    gridlines: {
+                        color: "#FFFFFF"
+                    },
+                    baselineColor: '#FFFFFF'
+                },
+                vAxis: {
+                    title:"Tiempo",
+                    titleStyle:{
+                        color: "#FFFFFF"
+                    },
+                    titleTextStyle:{
+                        color: '#FFF',
+                        fontSize: 20
+                    },
+                    textStyle: {
+                        color: "#FFFFFF"
+                    },
+                    gridlines: {
+                        color: "#FFFFFF"
+                    },
+                    baselineColor: '#FFFFFF'
+                },
+            };
+            let chart = new google.visualization.ColumnChart(document.getElementById("scores"));
+            chart.draw(time_t, options);
+        }
+  
     </script>
     </html>
     

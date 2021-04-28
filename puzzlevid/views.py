@@ -40,28 +40,27 @@ def estadisticasGlobales(request):
         #Display the PostgreSQL version installed
         #TODO: Cambiar usuarioId por el de la sesion
         data={}
-        user = request.user.id
-        '''
-        cursor.execute("SELECT sec_to_time(sum(time_to_sec('terminoSesion') -  time_to_sec('inicioSesion'))) as timeSum FROM puzzlevid_session WHERE usuarioId={};".format(user))
-        minutos_jugados = cursor.fetchall()
-        data["minutos_jugados"] = minutos_jugados
-       
-        cursor.execute('SELECT sec_to_time(avg(time_to_sec("terminoSesion") -  time_to_sec("inicioSesion"))) as timeProm FROM puzzlevid_session WHERE usuarioId={};'.format(user))
-        promedio_min_sesion = cursor.fetchall() 
-        data["promedio_min_sesion"] = promedio_min_sesion
-         '''
 
-        cursor.execute('SELECT sum("enemigosEliminados") FROM puzzlevid_session WHERE "usuarioId_id"={};'.format(user))
-        enemigos_eliminados = cursor.fetchall() 
-        data["enemigos_eliminados"] = enemigos_eliminados
-
+        #Scores maximos
         cursor.execute('SELECT "usuarioId_id", sum("aciertosQuim") + sum("aciertosMate") + sum("aciertosGeo") + sum("aciertosHist") + sum("aciertosBio") as ItemSum FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY ItemSum desc LIMIT 5;')
         top_five_scores = cursor.fetchall()
         data['top_five_scores']= top_five_scores
+        
+        #Tiempo jugado
+        cursor.execute('SELECT "usuarioId", sum("terminoSesion"-"inicioSesion") as TimeSum FROM puzzlevid_session GROUP BY "usuarioId" ORDER BY TimeSum desc LIMIT 5;')
+        tiempo_jugado = cursor.fetchall()
+        data['tiempo_jugado']= tiempo_jugado
 
+        #Enemigos eliminados
+        cursor.execute('SELECT "usuarioId_id", sum("enemigosEliminados") as EnemTotales FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY EnemTotales desc LIMIT 5;')
+        enemigos_eliminados = cursor.fetchall() 
+        data["enemigos_eliminados"] = enemigos_eliminados
+
+        # Duracion Promedio //Sin tabla
         cursor.execute('SELECT avg("terminoSesion"-"inicioSesion") as TimeAvg FROM puzzlevid_session ORDER BY TimeAvg desc;')
         duracion_promedio = cursor.fetchall()
-        data['duracion_promedio']= duracion_promedio
+        data['duracion_promedio']= str(duracion_promedio)
+
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
     except(Exception, psycopg2.Error) as error:
