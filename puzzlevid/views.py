@@ -59,6 +59,10 @@ def estadisticasGlobales(request):
         top_five_scores = cursor.fetchall()
         data['top_five_scores']= top_five_scores
 
+        cursor.execute('SELECT "usuarioId_id", avg("terminoSesion"-"inicioSesion") as TimeAvg FROM puzzlevid_session ORDER BY TimeAvg desc;')
+        duracion_promedio = cursor.fetchall()
+        data['duracion_promedio']= duracion_promedio
+        
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
     except(Exception, psycopg2.Error) as error:
         print("Error connecting to PostgreSQL database", error)
