@@ -244,14 +244,8 @@ th, td {
 background: #120A1F;
 color: aliceblue;
 background-size: cover;
-height: 100%;
+height: 140%;
 }
 
-.userlist{
-    padding-bottom: 400px;
-}
 
-.sessiones{
-    position:relative;
-    left:400px;
-}
+
