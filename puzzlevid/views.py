@@ -238,7 +238,7 @@ def infoUsuario(request):
     user = body['data_a']
     pwd = body['data_b']
     jugador_o  = User.objects.filter(username=user)     
-    jugador_objeto = Usuario.objects.filter(nombre=jugador_o[0].username)
+    jugador_objeto = Usuario.objects.filter(gameTag=jugador_o[0].username)
     print(jugador_o[0].password)
     #hash = computeMD5hash(jugador_o[0].password)
     if(len(jugador_o[0].password)>10):
