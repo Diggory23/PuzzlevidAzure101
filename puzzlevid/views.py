@@ -223,7 +223,7 @@ def estadisticas(request):
     '''
 
    
-        return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre})
+    return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre})
   
     
    
