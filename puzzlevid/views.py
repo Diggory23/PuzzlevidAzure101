@@ -170,9 +170,7 @@ def estadisticas(request):
         #return HttpResponse(rows)
         data=[]
         data2=[]
-        barras=[]
-        barras.append(['Jugador', 'Score Quimica','Score Mate','Score Geografia','Score Biologia', 'Score Historia','Enemigos Eliminados'])
-
+       
         for row in rows:
           retorno = {"usuarioId":user,
               "scoreQuimica":row[3],
@@ -224,19 +222,9 @@ def estadisticas(request):
     print(retorno)
     '''
 
-    #Grafica de barras
-    
-    
-    titulo = 'Estadisticas de' + nombre
-    titulo_formato = dumps(titulo)
-    subtitulo= 'Estadisticas generales por jugador'
-    subtitulo_formato = dumps(subtitulo)
-    if len(barras)>0:
-        data_formato = dumps(data)
-        elJSON = {'losDatos':data_formato,'titulo':titulo_formato,'subtitulo':subtitulo_formato}
-        return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre,"json":elJSON})
-    else:
-       return HttpResponse("<h1> No hay registros a mostrar</h1>")
+   
+        return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre})
+  
     
    
 
