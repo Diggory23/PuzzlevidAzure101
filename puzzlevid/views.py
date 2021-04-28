@@ -160,7 +160,7 @@ def estadisticas(request):
         )
         user = request.user.id
         nombre = request.user.username
-        print("user"+user)
+       
         #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
         cursor = connection.cursor()
         #Display the PostgreSQL version installed
@@ -170,7 +170,7 @@ def estadisticas(request):
         #return HttpResponse(rows)
         data=[]
         data2=[]
-       
+        print("user"+user)
         for row in rows:
           retorno = {"usuarioId":user,
               "scoreQuimica":row[3],
