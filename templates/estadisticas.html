@@ -45,37 +45,41 @@
     <div class="container text-center">
           <h3>Aquí puedes consultar las puntuaciones de diferentes categorías</h3>
           </div> 
+          
+          <ul class="userlist">
+            {% for u in data %}
+            <br>
+            <li>Usuario: {{u.usuarioId}}</li>
+            <li>Score quimica: {{u.scoreQuimica}}</li>
+            <li>Score mate: {{u.scoreMate}}</li>
+            <li>Score geografia: {{u.scoreGeografia}}</li>
+            <li>Score Biologia: {{u.scoreBiologia}}</li>
+            <li>Score historia: {{u.scoreHistoria}}</li>
+            <li>Enemigos eliminados: {{u.EnemigosEliminados}}</li>
+            {% endfor %}
+
+            <ul class="sessiones">
+              {% for u in data2 %}
+              <br>
+              <li>Usuario: {{u.usuarioId}}</li>
+              <li>Inicio Sesion: {{u.inicioSesion}}</li>
+              <li>Termino Sesion: {{u.terminoSesion}}</li>
+              {% endfor %}
+              
+          </ul>
+            
+        </ul>
     </div>  
 
     
-    <ul class="userlist">
-        {% for u in data %}
-        <br>
-        <li>Usuario: {{u.usuarioId}}</li>
-        <li>Score quimica: {{u.scoreQuimica}}</li>
-        <li>Score mate: {{u.scoreMate}}</li>
-        <li>Score geografia: {{u.scoreGeografia}}</li>
-        <li>Score Biologia: {{u.scoreBiologia}}</li>
-        <li>Score historia: {{u.scoreHistoria}}</li>
-        <li>Enemigos eliminados: {{u.EnemigosEliminados}}</li>
-        {% endfor %}
-        
-    </ul>
+    
 
     
 
   
     </section>
 
-    <ul class="sessiones">
-      {% for u in data2 %}
-      <br>
-      <li>Usuario: {{u.usuarioId}}</li>
-      <li>Inicio Sesion: {{u.inicioSesion}}</li>
-      <li>Termino Sesion: {{u.terminoSesion}}</li>
-      {% endfor %}
-      
-  </ul>
+    
     
     </body>
     </html>
