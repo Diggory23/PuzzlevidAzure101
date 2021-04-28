@@ -38,24 +38,16 @@ def estadisticasGlobales(request):
         #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
         cursor = connection.cursor()
         #Display the PostgreSQL version installed
-        cursor.execute("SELECT * from puzzlevid_session;")
-        rows = cursor.fetchall()
-        
-        #return HttpResponse(rows)
-        data=[]
+        #TODO: Cambiar usuarioId por el de la sesion
+        data={}
+        user = request.user.id
+        cursor.execute("SELECT sec_to_time(sum(time_to_sec(terminoSesion) -  time_to_sec(inicioSesion))) as timeSum FROM session WHERE usuarioId={};".format(user))
+        minutos_jugados = cursor.fetchall()
+        data["minutos_jugados"] = minutos_jugados
 
-        for row in rows:
-          retorno = {"usuarioId":row[8],
-              "scoreQuimica":row[3],
-              "scoreMate":row[4],
-              "scoreGeografia":row[5],
-              "scoreHistoria":row[6],
-              "EnemigosEliminados":row[7]
-            }
-          data.append(retorno)
-        print(data)
-
-        i=0
+        cursor.execute("SELECT sec_to_time(avg(time_to_sec(terminoSesion) -  time_to_sec(inicioSesion))) as timeProm FROM session WHERE usuarioId={};".format(user))
+        promedio_min_sesion = cursor.fetchall() 
+        data["promedio_min_sesion"] = promedio_min_sesion
 
         cursor.execute("""SELECT sum(aciertosQuim) + sum(aciertosMate) + sum(aciertosGeo) + sum(aciertosBio) + sum(aciertosHist) as ItemSum
                       FROM puzzlevid_session
