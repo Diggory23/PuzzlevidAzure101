@@ -233,7 +233,7 @@ def estadisticas(request):
     if len(barras)>0:
         data_formato = dumps(data)
         elJSON = {'losDatos':data_formato,'titulo':titulo_formato,'subtitulo':subtitulo_formato}
-        return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre},elJSON)
+        return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre,"json":elJSON})
     else:
        return HttpResponse("<h1> No hay registros a mostrar</h1>")
     
