@@ -49,11 +49,6 @@ def estadisticasGlobales(request):
         promedio_min_sesion = cursor.fetchall() 
         data["promedio_min_sesion"] = promedio_min_sesion
 
-        cursor.execute("""SELECT sum(aciertosQuim) + sum(aciertosMate) + sum(aciertosGeo) + sum(aciertosBio) + sum(aciertosHist) as ItemSum
-                      FROM puzzlevid_session
-                      WHERE usuarioId= %s """, data[0][8])
-          
-
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
     except(Exception, psycopg2.Error) as error:
