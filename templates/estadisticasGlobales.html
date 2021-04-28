@@ -71,8 +71,8 @@
         google.charts.setOnLoadCallback(createCharts);
 
         let scores = {{ data.top_five_scores }};
-        let time = {{ data.tiempo_jugado }};
         let enemies = {{ data.enemigos_eliminados }};
+        let time = {{ data.tiempo_jugado }};
 
         console.log(scores);
         function createCharts(){
