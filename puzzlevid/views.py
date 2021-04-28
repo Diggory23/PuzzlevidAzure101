@@ -55,6 +55,9 @@ def estadisticasGlobales(request):
         enemigos_eliminados = cursor.fetchall() 
         data["enemigos_eliminados"] = enemigos_eliminados
 
+        cursor.execute('SELECT "usuarioId_id", sum("aciertosQuim") + sum("aciertosMate") + sum("aciertosGeo") + sum("aciertosHist") + sum("aciertosBio") as ItemSum FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY ItemSum desc LIMIT 5;')
+        top_five_scores = cursor.fetchall()
+        data['top_five_scores']= top_five_scores
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
     except(Exception, psycopg2.Error) as error:
