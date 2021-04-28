@@ -41,11 +41,11 @@ def estadisticasGlobales(request):
         #TODO: Cambiar usuarioId por el de la sesion
         data={}
         user = request.user.id
-        cursor.execute("SELECT sec_to_time(sum(time_to_sec(puzzlevid_session.terminosesion) -  time_to_sec(puzzlevid_session.iniciosesion))) as timeSum FROM puzzlevid_session WHERE usuarioId={};".format(user))
+        cursor.execute("SELECT sec_to_time(sum(time_to_sec('terminoSesion') -  time_to_sec('inicioSesion'))) as timeSum FROM puzzlevid_session WHERE usuarioId={};".format(user))
         minutos_jugados = cursor.fetchall()
         data["minutos_jugados"] = minutos_jugados
 
-        cursor.execute("SELECT sec_to_time(avg(time_to_sec(puzzlevid_session.terminosesion) -  time_to_sec(puzzlevid_session.iniciosesion))) as timeProm FROM puzzlevid_session WHERE usuarioId={};".format(user))
+        cursor.execute("SELECT sec_to_time(avg(time_to_sec('terminoSesion') -  time_to_sec('inicioSesion'))) as timeProm FROM puzzlevid_session WHERE usuarioId={};".format(user))
         promedio_min_sesion = cursor.fetchall() 
         data["promedio_min_sesion"] = promedio_min_sesion
 
