@@ -174,11 +174,11 @@
                     baselineColor: '#FFFFFF'
                 },
             };
-            let chart = new google.visualization.ColumnChart(document.getElementById("scores"));
+            let chart = new google.visualization.ColumnChart(document.getElementById("tiempo"));
             chart.draw(time_t, options);
         }
         function enemiesChart() {
-            var time_t = google.visualization.arrayToDataTable([
+            var enemies_t = google.visualization.arrayToDataTable([
               ['Lugares', 'Enemigos Eliminados'],
               ['1', enemies[0]],
               ['2', enemies[1]],
@@ -222,8 +222,8 @@
                     baselineColor: '#FFFFFF'
                 },
             };
-            let chart = new google.visualization.ColumnChart(document.getElementById("scores"));
-            chart.draw(time_t, options);
+            let chart = new google.visualization.ColumnChart(document.getElementById("enemigos"));
+            chart.draw(enemies_t, options);
         }
   
     </script>
