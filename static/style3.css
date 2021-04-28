@@ -9,10 +9,10 @@ body
     background-color: #000;
 }
 
-td {
+th, td {
   padding: 10px;
-  color:white;
-  font-weight: 100;
+    color:white;
+    font-weight: 100;
 }
 
 #nav-bar
@@ -74,7 +74,7 @@ td {
 
 #banner
 {
-    background: url("/static/images/background  .jpg");
+    background: url(background.jpg);
     display: table;
     height: 100%;
     position:relative;
@@ -85,15 +85,13 @@ td {
 }
 .banner h2{
     text-transform: uppercase;
-    font-size:800%;
+    font size:800%;
     font-weight: 100;
 }
-
 .text-center h3{
-   font-size:120%;
+   font size:120%;
     font-weight: 100;
 }
-
 .banner-img
 {
     width: 60px;
@@ -238,7 +236,7 @@ td {
 #steam{
     padding-bottom: 90px;
     padding-top: 80px;
-    background: #120A1F !important;
+    background: #120A1F;
     color: #fff;
     text-align: justify;
 }
