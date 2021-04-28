@@ -173,7 +173,7 @@ def estadisticas(request):
               "scoreQuimica":row[3],
               "scoreMate":row[4],
               "scoreGeografia":row[5],
-              "scoreHistoria":row[6],
+              "scoreBiologia":row[9],
               "EnemigosEliminados":row[7]
             }
           data.append(retorno)
