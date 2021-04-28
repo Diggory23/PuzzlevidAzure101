@@ -24,8 +24,59 @@ def juega(request):
 def login(request):
     return render(request, 'login.html')
 
+@transaction.atomic
 def estadisticasGlobales(request):
-    return render(request, 'estadisticasGlobales.html')
+    try:
+        connection = psycopg2.connect(
+            user = "admin",
+            password = "ragnar",
+            host = "localhost",
+            port = "5432",
+            database = "puzzlevid"
+        )
+
+        #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
+        cursor = connection.cursor()
+        #Display the PostgreSQL version installed
+        cursor.execute("SELECT * from puzzlevid_session;")
+        rows = cursor.fetchall()
+        
+        #return HttpResponse(rows)
+        data=[]
+
+        for row in rows:
+          retorno = {"usuarioId":row[8],
+              "scoreQuimica":row[3],
+              "scoreMate":row[4],
+              "scoreGeografia":row[5],
+              "scoreHistoria":row[6],
+              "EnemigosEliminados":row[7]
+            }
+          data.append(retorno)
+        print(data)
+
+        i=0
+
+        cursor.execute("""SELECT sum(aciertosQuim) + sum(aciertosMate) + sum(aciertosGeo) + sum(aciertosBio) + sum(aciertosHist) as ItemSum
+                      FROM puzzlevid_session
+                      WHERE usuarioId= %s """, data[0][8])
+          
+
+
+    #Handle the error throws by the command that is useful when using python while working with PostgreSQL
+    except(Exception, psycopg2.Error) as error:
+        print("Error connecting to PostgreSQL database", error)
+        connection = None
+
+    #Close the database connection
+    
+    finally:
+        if(connection != None):
+            cursor.close()
+            connection.close()
+            print("PostgreSQL connection is now closed")
+    
+    return render(request, 'estadisticasGlobales.html', {"data":data})
 
 def signup(response):
 
