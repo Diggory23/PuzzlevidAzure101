@@ -245,8 +245,10 @@ background: #120A1F;
 color: aliceblue;
 background-size: cover;
 height: 100%;
-padding-bottom: 40%;
-    
+}
+
+.userlist{
+    padding-bottom: 40%;
 }
 
 .sessiones{
