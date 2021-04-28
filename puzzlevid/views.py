@@ -53,7 +53,6 @@ def estadisticasGlobales(request):
         x = []
         for i in tiempo_jugado:
             x.append((i[0],i[1].total_seconds()/60))
-        print(type(i[0][0]))
         data['tiempo_jugado']= x
 
         #Enemigos eliminados
