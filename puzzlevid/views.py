@@ -154,6 +154,7 @@ def estadisticas(request):
         
         #return HttpResponse(rows)
         data=[]
+        data2=[]
 
         for row in rows:
           retorno = {"usuarioId":row[8],
@@ -166,6 +167,14 @@ def estadisticas(request):
             }
           data.append(retorno)
         print(data)
+
+        for row in rows:
+            retorno2 = {
+                "usuarioId":row[8],
+                "inicioSesion": row[1],
+                "terminoSesion":row[2]
+            }
+            data.append(retorno2)
        
           
 
@@ -194,7 +203,7 @@ def estadisticas(request):
         }
     print(retorno)
     '''
-    return render(request, 'estadisticas.html', {"data":data})
+    return render(request, 'estadisticas.html', {"data":data,"data2":data2})
     
    
 

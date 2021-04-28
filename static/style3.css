@@ -247,3 +247,8 @@ background-size: cover;
 height: 100%;
     
 }
+
+.sessiones{
+    position:relative;
+    left:400px;
+}

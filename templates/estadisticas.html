@@ -35,7 +35,7 @@
         
     <!----------Puzzlevid--------->   
     
-    <section id="Indicadores">
+  <section id="Indicadores">
     <div class="container">
     <br>
     <br>
@@ -61,6 +61,18 @@
         {% endfor %}
         
     </ul>
+
+    <ul class="sessiones">
+        {% for u in data2 %}
+        <br>
+        <li>Usuario: {{u.usuarioId}}</li>
+        <li>Score quimica: {{u.inicioSesion}}</li>
+        <li>Score mate: {{u.terminoSesion}}</li>
+        {% endfor %}
+        
+    </ul>
+
+  
     </section>
     
     </body>
