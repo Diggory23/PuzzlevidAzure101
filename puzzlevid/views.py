@@ -51,7 +51,7 @@ def estadisticasGlobales(request):
         data["promedio_min_sesion"] = promedio_min_sesion
         '''
 
-        cursor.execute("SELECT sum('enemigosEliminados') FROM puzzlevid_session WHERE usuarioId={};".format(user))
+        cursor.execute('SELECT sum("enemigosEliminados") FROM puzzlevid_session WHERE "usuarioId_id"={};'.format(user))
         enemigos_eliminados = cursor.fetchall() 
         data["enemigos_eliminados"] = enemigos_eliminados
 
