@@ -49,13 +49,12 @@ def estadisticasGlobales(request):
         #Tiempo jugado
         cursor.execute('SELECT "usuarioId_id", sum("terminoSesion"-"inicioSesion") as TimeSum FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY TimeSum desc LIMIT 5;')
         tiempo_jugado = cursor.fetchall()
+        print(tiempo_jugado)
+        x = []
         for i in tiempo_jugado:
-            x = list(i)
-            x[1] = x[1].total_seconds()/60
-            print(x)
-            i = tuple(x)
+            x.append((i[0],i[1].total_seconds()/60))
         print(type(i[0][0]))
-        data['tiempo_jugado']= tiempo_jugado
+        data['tiempo_jugado']= x
 
         #Enemigos eliminados
         cursor.execute('SELECT "usuarioId_id", sum("enemigosEliminados") as EnemTotales FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY EnemTotales desc LIMIT 5;')
