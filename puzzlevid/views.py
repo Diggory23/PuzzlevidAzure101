@@ -171,6 +171,7 @@ def estadisticas(request):
         #return HttpResponse(rows)
         data=[]
         data2=[]
+        info={}
         
         for row in rows:
           retorno = {"usuarioId":jugador_objeto[0].id,
@@ -195,7 +196,10 @@ def estadisticas(request):
             data2.append(retorno2)
        
           
-
+        # Duracion Promedio //Sin tabla
+        cursor.execute('SELECT avg("terminoSesion"-"inicioSesion") as TimeAvg FROM puzzlevid_session WHERE "usuarioId_id"={} ORDER BY TimeAvg desc ;'.format(jugador_objeto[0].id))
+        duracion_promedio = cursor.fetchall()
+        info['duracion_promedio']= str(duracion_promedio)
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
     except(Exception, psycopg2.Error) as error:
@@ -223,7 +227,7 @@ def estadisticas(request):
     '''
 
    
-    return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre})
+    return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre,"info":info})
   
     
    
