@@ -54,6 +54,7 @@
         <li>Promedio de minutos jugados por sesión: {{data.promedio_min_sesion}}</li>
         <li>Enemigos eliminados: {{data.enemigos_eliminados}} </li>
         <li>Top Five Scores: {{data.top_five_scores}} </li>
+        <div class="scores"></div>
         <li>Duracion promedio: {{data.duracion_promedio}}</li>
     </ul>
 
@@ -65,6 +66,68 @@
     </section>
     
     </body>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.load('current', {'packages':['treemap']});
+        google.charts.setOnLoadCallback(createCharts);
+
+        let scores = {{ data.top_five_scores }};
+        console.log(scores);
+        function createCharts(){
+            scoresChart()
+        }
+
+        function scoresChart() {
+            var age = google.visualization.arrayToDataTable([
+              ['Lugares', 'Score'],
+              ['1', scores[0]],
+              ['2', scores[1]],
+              ['3', scores[2]],
+              ['4', scores[3]],
+              ['5', scores[4]],
+            ]);
+            var options = {
+                bar: {groupWidth: "95%"},
+                legend: "none",
+                backgroundColor: 'transparent',
+                hAxis: {
+                    textStyle: {
+                        color: "#FFFFFF"
+                    },
+                    title: "Scores",
+                    titleTextStyle:{
+                        color: '#FFF',
+                        fontSize: 20
+                    },
+                    gridlines: {
+                        color: "#FFFFFF"
+                    },
+                    baselineColor: '#FFFFFF'
+                },
+                vAxis: {
+                    title:"Lugares",
+                    titleStyle:{
+                        color: "#FFFFFF"
+                    },
+                    titleTextStyle:{
+                        color: '#FFF',
+                        fontSize: 20
+                    },
+                    textStyle: {
+                        color: "#FFFFFF"
+                    },
+                    gridlines: {
+                        color: "#FFFFFF"
+                    },
+                    baselineColor: '#FFFFFF'
+                },
+            };
+            let chart = new google.visualization.ColumnChart(document.getElementById("scores"));
+            chart.draw(age, options);
+        }
+
+    </script>
     </html>
     
     
