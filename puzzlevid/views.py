@@ -154,11 +154,11 @@ def estadisticas(request):
             port = "5432",
             database = "puzzlevid"
         )
-
+        user = request.user.id
         #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
         cursor = connection.cursor()
         #Display the PostgreSQL version installed
-        cursor.execute("SELECT * from puzzlevid_session;")
+        cursor.execute('SELECT * from puzzlevid_session "usuarioId_id"={};'.format(user))
         rows = cursor.fetchall()
         
         #return HttpResponse(rows)
