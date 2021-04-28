@@ -49,7 +49,6 @@
           </div> 
     </div>  
 
-    <h3>Score Máximo</h3>
     <ul class="userlist">
         <br>
         <li>Top Five Scores: {{data.top_five_scores}} </li>
@@ -73,11 +72,13 @@
 
         let scores = {{ data.top_five_scores }};
         let time = {{ data.tiempo_jugado }};
-        
+        let enemies = {{ data.enemigos_eliminados }};
+
         console.log(scores);
         function createCharts(){
             scoresChart()
-            scoresChart()
+            enemiesChart()
+            timeChart()
         }
 
         function scoresChart() {
@@ -128,7 +129,7 @@
             let chart = new google.visualization.ColumnChart(document.getElementById("scores"));
             chart.draw(scores_t, options);
         }
-        function timeCharts() {
+        function timeChart() {
             var time_t = google.visualization.arrayToDataTable([
               ['Lugares', 'Tiempo'],
               ['1', time[0]],
@@ -157,6 +158,54 @@
                 },
                 vAxis: {
                     title:"Tiempo",
+                    titleStyle:{
+                        color: "#FFFFFF"
+                    },
+                    titleTextStyle:{
+                        color: '#FFF',
+                        fontSize: 20
+                    },
+                    textStyle: {
+                        color: "#FFFFFF"
+                    },
+                    gridlines: {
+                        color: "#FFFFFF"
+                    },
+                    baselineColor: '#FFFFFF'
+                },
+            };
+            let chart = new google.visualization.ColumnChart(document.getElementById("scores"));
+            chart.draw(time_t, options);
+        }
+        function enemiesChart() {
+            var time_t = google.visualization.arrayToDataTable([
+              ['Lugares', 'Enemigos Eliminados'],
+              ['1', enemies[0]],
+              ['2', enemies[1]],
+              ['3', enemies[2]],
+              ['4', enemies[3]],
+              ['5', enemies[4]],
+            ]);
+            var options = {
+                bar: {groupWidth: "95%"},
+                legend: "none",
+                backgroundColor: 'transparent',
+                hAxis: {
+                    textStyle: {
+                        color: "#FFFFFF"
+                    },
+                    title: "Lugares",
+                    titleTextStyle:{
+                        color: '#FFF',
+                        fontSize: 20
+                    },
+                    gridlines: {
+                        color: "#FFFFFF"
+                    },
+                    baselineColor: '#FFFFFF'
+                },
+                vAxis: {
+                    title:"Enemigos Eliminados",
                     titleStyle:{
                         color: "#FFFFFF"
                     },

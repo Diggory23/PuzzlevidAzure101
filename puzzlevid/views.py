@@ -59,7 +59,7 @@ def estadisticasGlobales(request):
         # Duracion Promedio //Sin tabla
         cursor.execute('SELECT avg("terminoSesion"-"inicioSesion") as TimeAvg FROM puzzlevid_session ORDER BY TimeAvg desc;')
         duracion_promedio = cursor.fetchall()
-        data['duracion_promedio']= str(duracion_promedio)
+        data['duracion_promedio']= duracion_promedio
 
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
