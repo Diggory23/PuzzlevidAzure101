@@ -201,7 +201,7 @@ def estadisticas(request):
        
           
         # Duracion Promedio //Sin tabla
-        cursor.execute('SELECT avg("terminoSesion"-"inicioSesion") as TimeAvg FROM puzzlevid_session ORDER BY TimeAvg desc WHERE "usuarioId_id"={} ;'.format(jugador_objeto[0].id))
+        cursor.execute('SELECT avg("terminoSesion"-"inicioSesion") as TimeAvg FROM puzzlevid_session ORDER BY TimeAvg desc WHERE "usuarioId_id"={};'.format(jugador_objeto[0].id))
         duracion_promedio = cursor.fetchall()
         info['duracion_promedio']= str(duracion_promedio)
 
