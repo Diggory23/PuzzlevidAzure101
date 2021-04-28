@@ -174,7 +174,7 @@ def estadisticas(request):
                 "inicioSesion": row[1],
                 "terminoSesion":row[2]
             }
-            data.append(retorno2)
+            data2.append(retorno2)
        
           
 
