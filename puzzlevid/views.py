@@ -158,13 +158,15 @@ def estadisticas(request):
             port = "5432",
             database = "puzzlevid"
         )
-        user = request.user.id
+
         nombre = request.user.username
+        jugador_objeto = Usuario.objects.filter(gameTag=nombre)
+        
         #print("user"+user)
         #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
         cursor = connection.cursor()
         #Display the PostgreSQL version installed
-        cursor.execute('SELECT * from puzzlevid_session WHERE "usuarioId_id"={};'.format(user))
+        cursor.execute('SELECT * from puzzlevid_session WHERE "usuarioId_id"={};'.format(jugador_objeto[0].id))
         rows = cursor.fetchall()
         
         #return HttpResponse(rows)
@@ -172,7 +174,7 @@ def estadisticas(request):
         data2=[]
         
         for row in rows:
-          retorno = {"usuarioId":user,
+          retorno = {"usuarioId":jugador_objeto[0].id,
               "scoreQuimica":row[3],
               "scoreMate":row[4],
               "scoreGeografia":row[5],
