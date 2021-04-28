@@ -79,7 +79,7 @@
         }
 
         function scoresChart() {
-            var age = google.visualization.arrayToDataTable([
+            var scores_t = google.visualization.arrayToDataTable([
               ['Lugares', 'Score'],
               ['1', scores[0]],
               ['2', scores[1]],
@@ -121,7 +121,7 @@
                 },
             };
             let chart = new google.visualization.ColumnChart(document.getElementById("scores"));
-            chart.draw(scores, options);
+            chart.draw(scores_t, options);
         }
 
     </script>
