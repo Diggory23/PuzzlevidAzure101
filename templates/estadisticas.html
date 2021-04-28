@@ -66,11 +66,21 @@
             <ul class="sessiones">
               {% for u in data2 %}
               <br>
-              <li>Usuario: {{u.usuarioId}}</li>
-              <li>Inicio Sesion: {{u.inicioSesion}}</li>
-              <li>Termino Sesion: {{u.terminoSesion}}</li>
+              <center>
+              <table>
+                <tr>
+                  <td>
+                    Inicio Sesion: {{u.inicioSesion}}
+                  </td>
+                  <td>
+                    Termino Sesion: {{u.terminoSesion}}
+                  </td>
+                </tr>
+              </table>
+            </center>
               {% endfor %}
-            
+            <br>
+            <center><h3>Tus sesiones pasadas...</h3></center>
               <!-- <p>average: {{info.duracion_promedio}}</p> -->
               
               {% for u in data %}
