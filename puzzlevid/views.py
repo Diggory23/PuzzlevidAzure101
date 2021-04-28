@@ -45,9 +45,9 @@ def estadisticasGlobales(request):
         cursor.execute('SELECT "usuarioId_id", sum("aciertosQuim") + sum("aciertosMate") + sum("aciertosGeo") + sum("aciertosHist") + sum("aciertosBio") as ItemSum FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY ItemSum desc LIMIT 5;')
         top_five_scores = cursor.fetchall()
         data['top_five_scores']= top_five_scores
-        
+
         #Tiempo jugado
-        cursor.execute('SELECT "usuarioId", sum("terminoSesion"-"inicioSesion") as TimeSum FROM puzzlevid_session GROUP BY "usuarioId" ORDER BY TimeSum desc LIMIT 5;')
+        cursor.execute('SELECT "usuarioId_id", sum("terminoSesion"-"inicioSesion") as TimeSum FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY TimeSum desc LIMIT 5;')
         tiempo_jugado = cursor.fetchall()
         data['tiempo_jugado']= tiempo_jugado
 
