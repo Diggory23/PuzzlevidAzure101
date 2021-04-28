@@ -238,7 +238,7 @@ td {
 #steam{
     padding-bottom: 90px;
     padding-top: 80px;
-    background: #120A1F;
+    background: #120A1F !important;
     color: #fff;
     text-align: justify;
 }
