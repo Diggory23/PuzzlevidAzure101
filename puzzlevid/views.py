@@ -45,11 +45,16 @@ def estadisticasGlobales(request):
         cursor.execute('SELECT "usuarioId_id", sum("aciertosQuim") + sum("aciertosMate") + sum("aciertosGeo") + sum("aciertosHist") + sum("aciertosBio") as ItemSum FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY ItemSum desc LIMIT 5;')
         top_five_scores = cursor.fetchall()
         data['top_five_scores']= top_five_scores
-        
+
         #Tiempo jugado
-        cursor.execute('SELECT "usuarioId", sum("terminoSesion"-"inicioSesion") as TimeSum FROM puzzlevid_session GROUP BY "usuarioId" ORDER BY TimeSum desc LIMIT 5;')
+        cursor.execute('SELECT "usuarioId_id", sum("terminoSesion"-"inicioSesion") as TimeSum FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY TimeSum desc LIMIT 5;')
         tiempo_jugado = cursor.fetchall()
-        data['tiempo_jugado']= tiempo_jugado
+        print(tiempo_jugado)
+        x = []
+        for i in tiempo_jugado:
+            x.append((i[0],i[1].total_seconds()/60))
+        print(type(i[0][0]))
+        data['tiempo_jugado']= x
 
         #Enemigos eliminados
         cursor.execute('SELECT "usuarioId_id", sum("enemigosEliminados") as EnemTotales FROM puzzlevid_session GROUP BY "usuarioId_id" ORDER BY EnemTotales desc LIMIT 5;')
@@ -59,7 +64,7 @@ def estadisticasGlobales(request):
         # Duracion Promedio //Sin tabla
         cursor.execute('SELECT avg("terminoSesion"-"inicioSesion") as TimeAvg FROM puzzlevid_session ORDER BY TimeAvg desc;')
         duracion_promedio = cursor.fetchall()
-        data['duracion_promedio']= str(duracion_promedio)
+        data['duracion_promedio']= duracion_promedio
 
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
