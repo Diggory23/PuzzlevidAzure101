@@ -49,6 +49,10 @@ def estadisticasGlobales(request):
         promedio_min_sesion = cursor.fetchall() 
         data["promedio_min_sesion"] = promedio_min_sesion
 
+        cursor.execute("SELECT sum('enemigosEliminados') FROM session WHERE usuarioId={};".format(user))
+        enemigos_eliminados = cursor.fetchall() 
+        data["enemigos_eliminados"] = enemigos_eliminados
+
 
     #Handle the error throws by the command that is useful when using python while working with PostgreSQL
     except(Exception, psycopg2.Error) as error:
