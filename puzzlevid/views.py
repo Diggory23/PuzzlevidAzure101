@@ -242,7 +242,7 @@ def infoUsuario(request):
     print(jugador_o[0].password)
     #hash = computeMD5hash(jugador_o[0].password)
     if(len(jugador_o[0].password)>10):
-        return HttpResponse(jugador_objeto[0].id)
+        return HttpResponse(jugador_objeto.id)
     else:
         return HttpResponse(-1)
 
