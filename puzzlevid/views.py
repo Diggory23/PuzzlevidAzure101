@@ -182,7 +182,7 @@ def estadisticas(request):
               
             }
           data.append(retorno)
-          barras.append(retorno)
+          
          
         print(data)
 
