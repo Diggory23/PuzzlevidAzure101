@@ -155,6 +155,7 @@ def estadisticas(request):
             database = "puzzlevid"
         )
         user = request.user.id
+        nombre = request.user.username
         #Create a cursor connection object to a PostgreSQL instance and print the connection properties.
         cursor = connection.cursor()
         #Display the PostgreSQL version installed
@@ -173,6 +174,7 @@ def estadisticas(request):
               "scoreBiologia":row[9],
               "scoreHistoria":row[6],
               "EnemigosEliminados":row[7]
+              
             }
           data.append(retorno)
         print(data)
@@ -213,7 +215,7 @@ def estadisticas(request):
     print(retorno)
     '''
     
-    return render(request, 'estadisticas.html', {"data":data,"data2":data2})
+    return render(request, 'estadisticas.html', {"data":data,"data2":data2,"nombre":nombre})
     
    
 
