@@ -166,7 +166,7 @@ def estadisticas(request):
         data2=[]
 
         for row in rows:
-          retorno = {"usuarioId":row[8],
+          retorno = {
               "scoreQuimica":row[3],
               "scoreMate":row[4],
               "scoreGeografia":row[5],
